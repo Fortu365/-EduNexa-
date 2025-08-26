@@ -1,243 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduNexa | Home</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Font Awesome -->
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-  <!-- AOS CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-  <style>
-    :root {
-      --gold: #D4AF37;
-      --light-gold: #F1E5AC;
-      --dark-gold: #B8860B;
-      --light-blue: #E6F4F7;
-      --medium-blue: #A7D0D9;
-      --dark-blue: #5D8AA8;
-      --white: #FFFFFF;
-    }
+    <title>EduNexa | Home Page</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    body { font-family: 'Poppins', sans-serif; color: #333; background: linear-gradient(135deg, var(--white), var(--light-blue), var(--white)); margin: 0; padding: 0; scroll-behavior: smooth; }
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-grad-school.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+<!--
+    
+TemplateMo 557 Grad School
 
-    .navbar-custom { background: rgba(255,255,255,0.7); backdrop-filter: blur(5px); padding: 12px 0; transition: background 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .navbar-custom.scrolled { background: rgba(255,255,255,0.95); }
-    .navbar-custom .nav-link { color: #333; font-weight: 500; margin: 0 10px; transition: color 0.3s, transform 0.3s; }
-    .navbar-custom .nav-link:hover { color: var(--gold); transform: translateY(-2px); }
-    .navbar-brand { color: var(--gold); font-weight: 700; font-size: 1.5rem; }
+https://templatemo.com/tm-557-grad-school
 
-    .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1557682250-33bd709cbe85') no-repeat center center/cover; }
-    .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(135deg, rgba(214, 175, 55, 0.1), rgba(167, 208, 217, 0.2)); backdrop-filter: blur(3px); }
-    .hero-content { position:relative; z-index:1; text-align:center; max-width:700px; opacity:0; transform: translateY(20px); transition: all 1s ease-out; }
-    .hero-content.show { opacity:1; transform: translateY(0); }
-    .hero-content h1 { font-size: 3rem; font-weight: 700; margin-bottom: 15px; color: var(--dark-blue); text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-    .hero-content p { color: #555; }
-    .btn-primary-custom { background: var(--gold); color: var(--white); padding:12px 30px; border:none; font-weight:bold; border-radius:30px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
-    .btn-primary-custom:hover { transform:scale(1.05); background: var(--dark-gold); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4); }
+-->
+  </head>
 
-    .features .card { background: rgba(255,255,255,0.8); border: none; border-radius:16px; backdrop-filter: blur(10px); transition: all 0.5s; text-align:center; padding:25px; opacity:0; transform: translateY(20px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-    .features .card.show { opacity:1; transform: translateY(0); }
-    .features .card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
-    .features .card i { color: var(--gold); background: linear-gradient(135deg, var(--light-blue), var(--white)); width: 60px; height: 60px; line-height: 60px; border-radius: 50%; margin: 0 auto 15px; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2); }
-    .features .card h5 { color: var(--dark-blue); font-weight: 600; }
-
-    .stats { background: linear-gradient(135deg, var(--light-blue), var(--white)); color: var(--dark-blue); padding:60px 0; text-align:center; position: relative; overflow: hidden; }
-    .stats::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='2' fill='%23D4AF37' opacity='0.2'/%3E%3C/svg%3E"); opacity: 0.3; }
-    .stats h2 { font-size:2.5rem; font-weight:700; color: var(--dark-blue); }
-    .stats p { font-size:1.1rem; color: #555; }
-
-    footer { background: linear-gradient(135deg, #2c3e50, #34495e); color: var(--light-blue); padding:40px 20px; text-align:center; }
-    footer h5 { color: var(--light-gold); margin-bottom:20px; font-weight: 600; }
-    footer a { color: var(--medium-blue); text-decoration:none; transition:0.3s; }
-    footer a:hover { color: var(--gold); transform: translateY(-2px); }
-    footer .social-icons i { margin:0 10px; color: var(--medium-blue); transition:0.3s; font-size: 1.2rem; }
-    footer .social-icons i:hover { color: var(--gold); transform: translateY(-3px); }
-
-    #scrollTop { position:fixed; bottom:30px; right:30px; background: var(--gold); border:none; border-radius:50%; width:45px; height:45px; display:none; align-items:center; justify-content:center; cursor:pointer; color: var(--white); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); transition: all 0.3s; z-index: 1000; }
-    #scrollTop:hover { background: var(--dark-gold); transform: scale(1.1); }
-
-    .hero-image { position: relative; }
-    /* --- Bouncing image --- */
-    .hero-image img {
-      border-radius: 12px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-      border: 5px solid var(--white);
-      transition: all 0.5s;
-      animation: bounceSmooth 2s infinite; /* <<< bounce animation added */
-    }
-    .hero-image img:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-
-    /* --- Smooth bounce keyframes --- */
-    @keyframes bounceSmooth {
-      0%, 100% { transform: translateY(0); }
-      25% { transform: translateY(-15px); }
-      50% { transform: translateY(-20px); }
-      75% { transform: translateY(-15px); }
-    }
-
-    @media (max-width: 991px) {
-      .hero-content { flex-direction: column; }
-      .hero-image { margin-top: 20px; }
-      .hero-content h1 { font-size: 2.2rem; }
-    }
-
-  </style>
-</head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><span class="gold-accent"><i class="fas fa-graduation-cap"></i> Edu</span>Nexa</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#heroContent"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#features"><i class="fa-solid fa-circle-info"></i> About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#features"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="#features"><i class="fa-solid fa-user-plus"></i> Register</a></li>
-        <li class="nav-item"><a class="nav-link" href="#features"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="#features"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
+   
+  <!--header-->
+  <header class="main-header clearfix" role="header">
+    <div class="logo">
+      <a href="#"><em>Edu</em> Nexa</a>
+    </div>
+    <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+    <nav id="menu" class="main-nav" role="navigation">
+      <ul class="main-menu">
+        <li><a href="#section1"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li class="has-submenu"><a href="#section2"><i class="fa-solid fa-circle-info"></i> About Us</a>
+          <ul class="sub-menu">
+            <li><a href="#section2">Who we are?</a></li>
+            <li><a href="#section3">What we do?</a></li>
+            <li><a href="#section3">How it works?</a></li>
+          </ul>
+        </li>
+        <li><a href="#section4"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        <!-- <li><a href="#section5">Video</a></li> -->
+        <li><a href="#section6"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+        <li><a href="https://templatemo.com" class="external"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
       </ul>
-    </div>
-  </div>
-</nav>
+    </nav>
+  </header>
 
-<!-- Hero Section -->
-<section class="hero d-flex align-items-center justify-content-center">
-  <div class="hero-overlay"></div>
-  <div class="hero-content d-flex flex-column flex-lg-row align-items-center justify-content-center" id="heroContent">
-    <!-- Text -->
-    <div class="text-center text-lg-start me-lg-4">
-      <h1>Welcome to <span class="gold-accent">EduNexa</span></h1>
-      <p>EduNexa is a futuristic platform designed to simplify student applications,<br>
-        enhance collaboration, and make education<br>
-        accessible anytime, anywhere.</p>
-      <a href="#features" class="btn btn-primary-custom mt-3">Explore Features</a>
-    </div>
-    <!-- Image -->
-    <div class="hero-image mt-4 mt-lg-0">
-      <img src="./images/image_1.jpeg" 
-           alt="EduNexa" 
-           class="img-fluid rounded shadow" 
-           style="max-width:300px;">
-    </div>
-  </div>
-</section>
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="assets/images/course-video.mp4" type="video/mp4" />
+      </video>
 
-<!-- Features Section -->
-<section id="features" class="features container py-5">
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card" data-aos="fade-up">
-        <i class="fa-solid fa-rocket fa-2x mb-3"></i>
-        <h5>Fast Applications</h5>
-        <p>Apply to multiple institutions with one click.</p>
+      <div class="video-overlay header-text">
+          <div class="caption">
+              <h6>Shape Your Future With EduNexa</h6>
+              <h2><em>Your</em> Future</h2>
+              <div class="main-button">
+                  <div class="scroll-to-section"><a href="#section2">Discover more</a></div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+
+
+  <section class="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-12">
+          <div class="features-post">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa fa-pencil"></i>Access South African Institutions</h4>
+              </div>
+              <div class="content-hide">
+                <p>EduNexa brings together links to every South African institution in one place. 
+                    Students can explore different universities, colleges, and training centers effortlessly — helping them make</p>
+                <p class="hidden-sm">informed decisions about their education and future.</p>
+                <div class="scroll-to-section"><a href="#section2">More Info.</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-12">
+          <div class="features-post second-features">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa fa-graduation-cap"></i>Simplify Virtual Applications</h4>
+              </div>
+              <div class="content-hide">
+                <p>No more standing in long queues or dealing with paperwork. 
+                  With EduNexa, you can apply online to multiple institutions anytime, anywhere.</p>
+                <p class="hidden-sm">Our platform is available 24/7, ensuring you never miss a deadline.</p>
+                <div class="scroll-to-section"><a href="#section3">Details</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-12">
+          <div class="features-post third-features">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa fa-book"></i>Secure & Reliable</h4>
+              </div>
+              <div class="content-hide">
+                <p>EduNexa values your privacy.
+                  We use top-notch security measures to keep all your personal and academic information safe and</p>
+                <p class="hidden-sm">protected at all times.</p>
+                <div class="scroll-to-section"><a href="#section4">Read More</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <i class="fa-solid fa-headset fa-2x mb-3"></i>
-        <h5>24/7 Support</h5>
-        <p>Chat and support available anytime you need help.</p>
+  </section>
+
+  <section class="section why-us" data-section="section2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Why choose EduNexa?</h2>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div id='tabs'>
+            <ul>
+              <li><a href='#tabs-1'>Guidance for Every Student</a></li>
+              <li><a href='#tabs-2'>Time and Cost Savings</a></li>
+              <li><a href='#tabs-3'>Trusted Student Companion</a></li>
+            </ul>
+            <section class='tabs-content'>
+              <article id='tabs-1'>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="assets/images/choose-us-image-01.png" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Guidance for Every Student</h4>
+                    <p>EduNexa is designed to support students at every stage of their academic journey. Whether you’re exploring institutions for the first time or preparing for advanced studies, the platform provides clear direction, helpful tools, and resources to make informed choices. Please tell your friends about us. Thank you.</p>
+                  </div>
+                </div>
+              </article>
+              <article id='tabs-2'>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="assets/images/choose-us-image-02.png" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Time and Cost Savings</h4>
+                    <p>By moving the application and research process online, EduNexa saves students both time and money. There’s no need to travel across provinces or spend on unnecessary paperwork.</p> 
+                    <p>Everything you need is just a click away, helping you focus more on planning your future.</p>
+                  </div>
+                </div>
+              </article>
+              <article id='tabs-3'>
+                <div class="row">
+                  <div class="col-md-6">
+                    <img src="assets/images/choose-us-image-03.png" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Trusted Student Companion</h4>
+                    <p>EduNexa is more than just a platform — it’s a reliable partner in your education. With accurate information, user-friendly features, and a commitment to student success, it gives you peace of mind as you take important steps toward achieving your goals.</p>
+                  </div>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <i class="fa-solid fa-globe fa-2x mb-3"></i>
-        <h5>Access Anywhere</h5>
-        <p>Manage your applications from any device.</p>
+  </section>
+
+  <section class="section coming-soon" data-section="section3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-xs-12">
+          <div class="continer centerIt">
+            <div>
+              <h4>Start <em> online applications now and </em> shape your future </h4>
+              <div class="counter">
+
+                <div class="days">
+                  <div class="value">00</div>
+                  <span>Days</span>
+                </div>
+
+                <div class="hours">
+                  <div class="value">00</div>
+                  <span>Hours</span>
+                </div>
+
+                <div class="minutes">
+                  <div class="value">00</div>
+                  <span>Minutes</span>
+                </div>
+
+                <div class="seconds">
+                  <div class="value">00</div>
+                  <span>Seconds</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="right-content">
+            <div class="top-content">
+              <h6>Register your account today and <em>get access</em> to online applications</h6>
+            </div>
+            <form id="contact" action="" method="get">
+              <div class="row">
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Names As Per ID" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="phone-number" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Username" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="name" type="password" class="form-control" id="name" placeholder="Your Password" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <input name="name" type="password" class="form-control" id="name" placeholder="Comfirm Password" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-12">
+                  <fieldset>
+                    <button type="submit" id="form-submit" class="button">REGISTER</button>
+                  </fieldset>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Stats Section with Counters -->
-<section class="stats">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4 mb-4">
-        <h2><span class="counter" data-target="10000">0</span>+</h2>
-        <p>Applications Processed</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h2><span class="counter" data-target="99">0</span>%</h2>
-        <p>Satisfaction Rate</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h2><span class="counter" data-target="50">0</span>+</h2>
-        <p>Partner Institutions</p>
+  <section class="section courses" data-section="section4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Choose Your Course</h2>
+          </div>
+        </div>
+        <div class="owl-carousel owl-theme">
+          <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="Course #1">
+            <div class="down-content">
+              <h4>4IR Perspectives for Accountants</h4>
+              <p>College of Business and Economics <br>
+                  Department: <br>
+                  Programme Level: Continuous Education Programmes <br>
+                  NQF Level: <br>
+                  NQF Credits: <br>
+                  SAQA ID:</p> 
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="Author 1">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-02.jpg" alt="Course #2">
+            <div class="down-content">
+              <h4>Bridging the Digital Divide: Reaching the Missing Middle</h4>
+              <p>Johannesburg Business School <br>
+                  Department: <br>
+                  Programme Level: Short Courses <br>
+                  NQF Level: <br>
+                  NQF Credits: <br>
+                  SAQA ID:</p>
+              <div class="author-image">
+                <img src="assets/images/author-02.png" alt="Author 2">
+              </div>
+              <div class="text-button-free">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-03.jpg" alt="Course #3">
+            <div class="down-content">
+              <h4>The Storytelling Leader</h4>
+              <p>Johannesburg Business School <br>
+                Department: <br> 
+                Programme Level: Short Courses <br>
+                NQF Level: <br>
+                NQF Credits: <br>
+                SAQA ID:</p>
+              <div class="author-image">
+                <img src="assets/images/author-03.png" alt="Author 3">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-04.jpg" alt="Course #4">
+            <div class="down-content">
+              <h4>Management Consulting For The 4IR</h4>
+              <p>Johannesburg Business School <br>
+                Department: <br> 
+                Programme Level: Short Courses <br>
+                NQF Level: <br> 
+                NQF Credits: <br>
+                SAQA ID:</p>
+              <div class="author-image">
+                <img src="assets/images/author-04.png" alt="Author 4">
+              </div>
+              <div class="text-button-free">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-05.jpg" alt="">
+            <div class="down-content">
+              <h4>Personal Leadership In The 21st Century</h4>
+              <p>Johannesburg Business School <br>
+                Department: <br>
+                Programme Level: Short Courses <br>
+                NQF Level: <br>
+                NQF Credits: <br>
+                SAQA ID:</p>
+              <div class="author-image">
+                <img src="assets/images/author-05.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="">
+            <div class="down-content">
+              <h4>Contextual Finance For Non-Financial Managers</h4>
+              <p>Johannesburg Business School <br>
+                Department: <br>
+                Programme Level: Short Courses <br>
+                NQF Level: <br>
+                NQF Credits: <br>
+                SAQA ID:</p>
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="">
+              </div>
+              <div class="text-button-free">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-02.jpg" alt="">
+            <div class="down-content">
+              <h4>Behavioural Economics</h4>
+              <p>Johannesburg Business School <br>
+                Department: <br>
+                Programme Level: Short Courses <br>
+                NQF Level: <br>
+                NQF Credits: <br>
+                SAQA ID:</p> 
+              <div class="author-image">
+                <img src="assets/images/author-02.png" alt="">
+              </div>
+              <div class="text-button-free">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-03.jpg" alt="">
+            <div class="down-content">
+              <h4>Paralegal Bridging Programme</h4>
+              <p>Faculty of Law <br>
+                Department: <br>
+                Programme Level: Short Courses <br>
+                NQF Level: 4 <br>
+                NQF Credits: 30 <br>
+                SAQA ID:</p> 
+              <div class="author-image">
+                <img src="assets/images/author-03.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-04.jpg" alt="">
+            <div class="down-content">
+              <h4>SLP Business Rescue</h4>
+              <p>Faculty of Law <br>
+                Department: <br>
+                Programme Level: Short Courses <br>
+                NQF Level: 6 <br>
+                NQF Credits: <br>
+                SAQA ID</p>
+              <div class="author-image">
+                <img src="assets/images/author-04.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-05.jpg" alt="">
+            <div class="down-content">
+              <h4>PG Dip. Drafting and Interpretation of Contracts</h4>
+              <p>Faculty of Law <br>
+                  Department: <br>
+                  Programme Level: Postgraduate <br>
+                  NQF Level: 8 <br>
+                  NQF Credits: 120 <br>
+                  SAQA ID: 102460</p>
+              <div class="author-image">
+                <img src="assets/images/author-05.png" alt="">
+              </div>
+              <div class="text-button-free">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="">
+            <div class="down-content">
+              <h4>PG Dip Labour Law</h4>
+              <p>Faculty of Law <br>
+                  Department: <br>
+                  Programme Level: Postgraduate <br>
+                  NQF Level: 8 <br>
+                  NQF Credits: 120 <br>
+                  SAQA ID: 102375</p>
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div> 
+
+          <!-- Additional Courses  Start --> 
+          <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="">
+            <div class="down-content">
+              <h4>Higher Certificate in Criminal Justice and Forensic Investigations</h4>
+              <p>Faculty of Law <br>
+                  Department: <br> 
+                  Programme Level: Continuous Education Programmes <br>
+                  NQF Level: 5 <br>
+                  NQF Credits: 128 <br>
+                  SAQA ID: 102428</p>
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+
+            <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="">
+            <div class="down-content">
+              <h4>PhD in Art History </h4>
+              <p>Faculty of Art, Design and Architecture <br>
+                  Department: Department of Visual Art <br> 
+                  Programme Level: Postgraduate <br>
+                  NQF Level: 0 <br>
+                  NQF Credits: 360 <br>
+                  SAQA ID: 96969</p>
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+
+            <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="">
+            <div class="down-content">
+              <h4>MA in Visual Art</h4>
+              <p>Faculty of Art, Design and Architecture <br>
+                  Department: Department of Visual Art <br>
+                  Programme Level: Postgraduate <br>
+                  NQF Level: 9 <br>
+                  NQF Credits: 180 <br>
+                  SAQA ID:</p>
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+
+            <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="">
+            <div class="down-content">
+              <h4>MA in Art Therapy</h4>
+              <p>Faculty of Art, Design and Architecture <br>
+                  Department: Department of Visual Art <br>
+                  Programme Level: Postgraduate <br>
+                  NQF Level: 09 <br>
+                  NQF Credits: 180 <br>
+                  SAQA ID:</p>
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+
+            <div class="item">
+            <img src="assets/images/courses-01.jpg" alt="">
+            <div class="down-content">
+              <h4>BA Hons in Visual Art</h4>
+              <p>Faculty of Art, Design and Architecture <br>
+                  Department: Department of Visual Art <br>
+                  Programme Level: Postgraduate <br>
+                  NQF Level: 8 <br>
+                  NQF Credits: 120 <br>
+                  SAQA ID: 112184</p>
+              <div class="author-image">
+                <img src="assets/images/author-01.png" alt="">
+              </div>
+              <div class="text-button-pay">
+                <p>Free <i class="fa fa-angle-double-right"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Courses  End --> 
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <h5><span class="gold-accent">Edu</span>Nexa</h5>
-    <p>Empowering students worldwide by simplifying applications and making education accessible to everyone.</p>
-    <div class="social-icons my-3">
-      <a href="#"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#"><i class="fa-brands fa-twitter"></i></a>
-      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+  <section class="section video" data-section="section5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 align-self-center">
+          <div class="left-content">
+            <span>our presentation is for you</span>
+            <h4>Watch the video to understand the importance of <em> education, bought to you by EduNexa</em></h4>
+            <p> Education is one of the greatest blessings of life, a powerful tool that breaks the cycle of ignorance and empowers individuals to shape their future. <br>
+              Malala Yousafzai reminds us that education is not a privilege but a fundamental right that opens doors to opportunities, equality, and freedom.  <br><br>
+              It builds confidence, nurtures critical thinking, and gives every child — regardless of gender, background, or circumstance — the chance to dream and achieve. <br>
+              Without education, society remains trapped in poverty and inequality, <br> but with it, communities flourish and generations are uplifted.
+             </p>
+            <!-- <div class="main-button"><a rel="nofollow" href="https://www.youtube.com/watch?v=aXZPJ8yGbwU&ab_channel=Lector-Audiobooks" target="_parent"></a></div> -->
+            <div class="main-button"><a rel="nofollow" href="https://www.youtube.com/watch?v=k-YML68YVCw&ab_channel=TeachIndiaOnline" target="_parent">Education Motivational</a></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <article class="video-item">
+            <div class="video-caption">
+              <h4>Education Is The One Of The Blessings Of Life</h4>
+            </div>
+            <figure>
+              <!-- <a rel="nofollow" href="https://www.youtube.com/watch?v=k-YML68YVCw&ab_channel=TeachIndiaOnline" target="_parent"><img src="assets/images/main-thumb.png"></a> -->
+              <a rel="nofollow" href="https://www.youtube.com/watch?v=aXZPJ8yGbwU&ab_channel=Lector-Audiobooks" target="_parent"><img src="assets/images/main-thumb.png"></a>
+            </figure>
+          </article>
+        </div>
+      </div>
     </div>
-    <p>&copy; 2025 EduNexa. All rights reserved.</p>
-  </div>
-</footer>
+  </section>
 
-<!-- Scroll-to-top Button -->
-<button id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+  <section class="section contact" data-section="section6">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Let’s Keep In Touch</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+        
+        <!-- Do you need a working HTML contact-form script?
+                	
+                    Please visit https://templatemo.com/contact page -->
+                    
+          <form id="contact" action="" method="post">
+            <div class="row">
+              <div class="col-md-6">
+                  <fieldset>
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
+                  </fieldset>
+                </div>
+                <div class="col-md-6">
+                  <fieldset>
+                    <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" required="">
+                  </fieldset>
+                </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                </fieldset>
+              </div>
+              <div class="col-md-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="button">Send Message Now</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div id="map">
+            <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="422px" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({ duration: 1200, once: true });
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p><i class="fa fa-copyright"></i> Copyright 2025 by EduNexa
+          
+           | Empowering students worldwide by simplifying applications and making education accessible to everyone. </p> 
+           <div class="social-icons my-3">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
 
-  // Animate hero content on load
-  window.addEventListener('load', () => {
-    document.getElementById('heroContent').classList.add('show');
-    document.querySelectorAll('.features .card').forEach((card, i) => {
-      setTimeout(()=>{ card.classList.add('show'); }, i*150);
-    });
-  });
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  // Counter Animation
-  document.addEventListener('DOMContentLoaded', () => {
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const increment = Math.ceil(target / 200);
-        if (count < target) {
-          counter.innerText = count + increment;
-          setTimeout(updateCount, 20);
-        } else { counter.innerText = target; }
-      };
-      updateCount();
-    });
-  });
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  // Scroll-to-top & navbar background
-  window.addEventListener('scroll', () => {
-    const scrollTopBtn = document.getElementById('scrollTop');
-    scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
-    const navbar = document.querySelector('.navbar-custom');
-    if(window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
-  });
-</script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/slick-slider.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .scroll-to-section').on('click', 'a', function (e) {
+          if($(e.target).hasClass('external')) {
+            return;
+          }
+          e.preventDefault();
+          $('#menu').removeClass('active');
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+    </script>
 </body>
 </html>
