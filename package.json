@@ -1,0 +1,27 @@
+{
+  "name": "-edunexa-",
+  "version": "1.0.0",
+  "description": "EduNexa is a futuristic, connected platform designed to make applications more engaging, collaborative, and accessible.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fortu365/-EduNexa-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fortu365/-EduNexa-/issues"
+  },
+  "homepage": "https://github.com/Fortu365/-EduNexa-#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
