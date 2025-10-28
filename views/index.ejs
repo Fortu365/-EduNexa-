@@ -200,7 +200,7 @@
             <div class="top-content">
               <h6>Register your account today and <em>get access</em> to online applications</h6>
             </div>
-            <form id="contact" action="" method="get">
+            <form id="userForm" action="" method="post">
               <div class="row">
                 <div class="col-md-12">
                   <fieldset>
@@ -214,27 +214,27 @@
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="email" type="text" class="form-control" id="id_num" placeholder="Your ID Number" required="">
+                    <input name="id_number" type="text" class="form-control" id="id_number" placeholder="Your ID Number" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="phone-number" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">
+                    <input name="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="Your Phone Number" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Username" required="">
+                    <input name="username" type="text" class="form-control" id="username" placeholder="Your Username" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="name" type="password" class="form-control" id="name" placeholder="Your Password" required="">
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Your Password" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="name" type="password" class="form-control" id="name" placeholder="Comfirm Password" required="">
+                    <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
@@ -296,16 +296,16 @@
             <div class="top-content">
               <h6>Login To Get Started</h6>
             </div>
-            <form id="contact" action="" method="get">
+            <form id="loginForm">
               <div class="row">
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" required="">
+                    <input name="username" type="text" class="form-control" id="username" placeholder="Your Email" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="name" type="password" class="form-control" id="name" placeholder="Your Password" required="">
+                    <input name="password" type="password" class="form-control" id="password" placeholder="Your Password" required="">
                   </fieldset>
                 </div>
                 
@@ -406,5 +406,88 @@
           checkSection();
         });
     </script>
+
+  <!-- JS code to retrieve all the form fields under registering a user -->
+  <script>
+  const form = document.getElementById('userForm');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // stop form from reloading
+
+    // Collect form data
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries()); // convert to plain JS object
+
+    try {
+      // Send POST request
+      const response = await fetch('/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' // tell server you're sending JSON
+        },
+        body: JSON.stringify(data) // convert object to JSON string
+      });
+
+      // Handle server response
+      const result = await response.json();
+      console.log(result);
+
+      if (response.ok) {
+        alert('✅ Data Sent Successfully!');
+      } else {
+        alert('❌ Error: ' + (result.message || 'Something Went Wrong'));
+      }
+
+    } catch (error) {
+      console.error('Error:', error);
+      alert('❌ Failed to send data.');
+    }
+  });
+
+  // Login Functionality 
+  const LoginForm = document.getElementById('loginForm');
+
+  LoginForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // stop form from reloading
+
+    // Collect form data
+    const LoginFormData = new FormData(LoginForm);
+    const logindata = Object.fromEntries(LoginFormData.entries()); // convert to plain JS object
+
+    try {
+      // Send POST request
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' // tell server you're sending JSON
+        },
+        body: JSON.stringify(logindata) // convert object to JSON string
+      });
+
+      // Handle server response
+      const result = await response.json();
+      console.log(result);
+
+      let output = result;
+
+      if (response.ok) {
+        if(output['error']){
+          alert('❌ User Not Yet Registered');
+        }else{
+          alert(output['username']+' ✅ Logged In Successful !');
+        }
+
+      } else {
+        alert('❌ Error: ' + (result.message || 'Something Went Wrong'));
+      }
+
+    } catch (error) {
+      console.error('Error:', error);
+      alert('❌ Failed to send data.');
+    }
+  });
+
+</script>
+    
 </body>
 </html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduNexa | Attach Profile Image</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* Inherit EduNexa visual theme */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #606060, rgba(10, 6, 207, 0.322));
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .upload-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .upload-container h1 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .upload-container p {
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .profile-preview {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .upload-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn {
+      background: rgba(10, 6, 207, 0.6);
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 25px;
+      transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #7ba87b;
+      transform: translateY(-2px);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 25px;
+      color: #ffeb3b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .bg-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.upload-container, #successPopup {
+  position: relative;
+  z-index: 1;
+}
+
+
+    /* Floating animated background (same as EduNexa dashboard) */
+    .bg-animation div {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(10, 6, 207, 0.322);
+      border-radius: 50%;
+      animation: float 15s infinite linear;
+    }
+
+    .bg-animation div:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+    .bg-animation div:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+    .bg-animation div:nth-child(3) { top: 40%; left: 40%; animation-delay: 4s; }
+    .bg-animation div:nth-child(4) { top: 70%; left: 30%; animation-delay: 6s; }
+    .bg-animation div:nth-child(5) { top: 30%; left: 70%; animation-delay: 8s; }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+    }
+  </style>
+
+</head>
+<body>
+
+    <!-- Floating background animation -->
+<div class="bg-animation">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+  <div class="upload-container">
+    <h1><i class="fa fa-camera"></i> Attach Your Profile Image</h1>
+    <p>Upload your profile picture to make your EduNexa account feel more personal.</p>
+
+    <form id="uploadForm" enctype="multipart/form-data" method="POST" action="/upload-profile-image">
+      <img id="preview" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Preview" class="profile-preview">
+
+      <br>
+      <label for="profileImage" class="upload-btn"><i class="fa fa-upload"></i> Choose Image</label>
+      <input type="file" id="profileImage" name="profileImage" class="file-input" accept="image/*" required>
+
+      <br>
+      <button type="submit" class="submit-btn"><i class="fa fa-save"></i> Save Profile Image</button>
+    </form>
+
+    <a href="/user-welcome" class="back-link"><i class="fa fa-arrow-left"></i> Back to Dashboard</a>
+  </div>
+
+
+<!-- Code Edits Ends -->
+
+<!-- ✅ Success popup -->
+<div id="successPopup" style="
+  display:none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 25px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-align: center;
+">
+  ✅ File uploaded successfully!<br>
+  <button id="closePopup" style="
+    margin-top: 15px;
+    background: rgba(10, 6, 207, 0.6);
+    border: none;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+  ">OK</button>
+</div>
+
+<script>
+const fileInput = document.getElementById('profileImage');
+const preview = document.getElementById('preview');
+const form = document.getElementById('uploadForm');
+const popup = document.getElementById('successPopup');
+const closePopup = document.getElementById('closePopup');
+
+// Live image preview
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = e => preview.src = e.target.result;
+    reader.readAsDataURL(file);
+  }
+});
+
+// AJAX form submission
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData();
+  formData.append('profileImage', fileInput.files[0]);
+
+  const res = await fetch('/upload-profile-image', {
+    method: 'POST',
+    body: formData
+  });
+
+  if (res.ok) {
+    popup.style.display = 'block';
+    form.reset();
+    preview.src = "https://cdn-icons-png.flaticon.com/512/847/847969.png";
+  } else {
+    alert('❌ Upload failed. Please try again.');
+  }
+});
+
+// Close popup
+closePopup.addEventListener('click', () => {
+  popup.style.display = 'none';
+  window.location.href = '/user-welcome'; // optional redirect after success
+});
+</script>
+
+</body>
+</html>
