@@ -406,7 +406,7 @@
         </div>
       </div>
 
-      <!-- Step 2: Document Upload -->
+      <!-- Step 2: Document Uploads -->
       <div class="form-section" id="step-2">
         <h4 class="section-title"><i class="fa-solid fa-file-upload"></i> Required Documents</h4>
         <p class="text-muted mb-4">Please upload the following documents in PDF format. Required documents are marked with an asterisk (*).</p>
@@ -418,7 +418,7 @@
               <label class="file-upload-label">
                 <i class="fa-solid fa-id-card"></i>
                 <span>Click to upload ID/Passport</span>
-                <input type="file" name="id_doc" accept="application/pdf" class="file-input" required>
+                <input type="file" name="identity_document" id="identity_document" accept="application/pdf" class="file-input" required>
               </label>
               <div class="file-name"></div>
             </div>
@@ -430,7 +430,7 @@
               <label class="file-upload-label">
                 <i class="fa-solid fa-file-lines"></i>
                 <span>Click to upload Results</span>
-                <input type="file" name="results" accept="application/pdf" class="file-input" required>
+                <input type="file" name="matric_results" id="matric_results" accept="application/pdf" class="file-input" required>
               </label>
               <div class="file-name"></div>
             </div>
@@ -442,7 +442,7 @@
               <label class="file-upload-label">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <span>Click to upload Certificate</span>
-                <input type="file" name="nsc_doc" accept="application/pdf" class="file-input">
+                <input type="file" name="tertiary_qualification" id="tertiary_qualification" accept="application/pdf" class="file-input">
               </label>
               <div class="file-name"></div>
             </div>
@@ -454,7 +454,7 @@
               <label class="file-upload-label">
                 <i class="fa-solid fa-scroll"></i>
                 <span>Click to upload Transcripts</span>
-                <input type="file" name="transcripts" accept="application/pdf" class="file-input">
+                <input type="file" name="academic_transcripts" id="academic_transcripts" accept="application/pdf" class="file-input">
               </label>
               <div class="file-name"></div>
             </div>
@@ -466,7 +466,7 @@
               <label class="file-upload-label">
                 <i class="fa-solid fa-pen-to-square"></i>
                 <span>Click to upload Letter</span>
-                <input type="file" name="motivation" accept="application/pdf" class="file-input" required>
+                <input type="file" name="motivational_letter" id="motivational_letter" accept="application/pdf" class="file-input" required>
               </label>
               <div class="file-name"></div>
             </div>
@@ -478,7 +478,7 @@
               <label class="file-upload-label">
                 <i class="fa-solid fa-folder-plus"></i>
                 <span>Click to upload Additional Files</span>
-                <input type="file" name="supporting_docs" accept="application/pdf" class="file-input">
+                <input type="file" name="supporting_documents" id="supporting_documents" accept="application/pdf" class="file-input">
               </label>
               <div class="file-name"></div>
             </div>
@@ -666,24 +666,28 @@ document.addEventListener('DOMContentLoaded', function() {
   function populateReviewData() {
     document.getElementById('review-fullname').textContent = document.querySelector('input[name="fullname"]').value;
     document.getElementById('review-email').textContent = document.querySelector('input[name="email"]').value;
-    document.getElementById('review-phone').textContent = document.querySelector('input[name="phone"]').value;
+    document.getElementById('review-phone').textContent = document.querySelector('input[name="phoneNumber"]').value;
     document.getElementById('review-id').textContent = document.querySelector('input[name="id_number"]').value;
     document.getElementById('review-address').textContent = document.querySelector('input[name="address"]').value;
     document.getElementById('review-statement').textContent = document.querySelector('textarea[name="statement"]').value;
     
     // File names
-    document.getElementById('review-id-doc').textContent = document.querySelector('input[name="id_doc"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-results').textContent = document.querySelector('input[name="results"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-certificate').textContent = document.querySelector('input[name="nsc_doc"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-transcripts').textContent = document.querySelector('input[name="transcripts"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-motivation').textContent = document.querySelector('input[name="motivation"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-supporting').textContent = document.querySelector('input[name="supporting_docs"]').files[0]?.name || 'Not uploaded';
+    document.getElementById('review-id-doc').textContent = document.querySelector('input[name="identity_document"]').files[0]?.name || 'Not uploaded';
+    document.getElementById('review-results').textContent = document.querySelector('input[name="matric_results"]').files[0]?.name || 'Not uploaded';
+    document.getElementById('review-certificate').textContent = document.querySelector('input[name="tertiary_qualification"]').files[0]?.name || 'Not uploaded';
+    document.getElementById('review-transcripts').textContent = document.querySelector('input[name="academic_transcripts"]').files[0]?.name || 'Not uploaded';
+    document.getElementById('review-motivation').textContent = document.querySelector('input[name="motivational_letter"]').files[0]?.name || 'Not uploaded';
+    document.getElementById('review-supporting').textContent = document.querySelector('input[name="supporting_documents"]').files[0]?.name || 'Not uploaded';
   }
   
   // Form submission
   const profileForm = document.getElementById('profileForm');
   profileForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const matricFile = document.getElementById("matric_results").files[0];
+    console.log("Matric file:", matricFile);
+    console.log("Fortunate");
     
     if (!document.getElementById('confirm-info').checked) {
       alert('Please confirm that all information is accurate before submitting.');
@@ -700,7 +704,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     try {
       // In a real application, you would send this to your server
-      // const res = await fetch('/create-profile', {
+      // const res = await fetch('/update-profile', {
       //   method: 'POST',
       //   body: formData
       // });
@@ -786,7 +790,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
 };
 
+// New Code Edits  
+const form = document.getElementById('profileForm');
 
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // stop form from reloading
+
+    // Collect form data
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries()); // convert to plain JS object
+
+    console.log(data);
+
+
+    try {
+      // Send POST request
+      const response = await fetch('/update-profile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' // tell server you're sending JSON
+        },
+        body: JSON.stringify(data) // convert object to JSON string
+      });
+
+      // Handle server response
+      const result = await response.json();
+      console.log(result);
+
+      if (response.ok) {
+        alert('✅ Data Sent Successfully!');
+      } else {
+        alert('❌ Error: ' + (result.message || 'Something Went Wrong'));
+      }
+
+    } catch (error) {
+      console.error('Error:', error);
+      alert('❌ Failed to send data.');
+    }
+  });
 
 </script>
 

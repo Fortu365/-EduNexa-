@@ -1,0 +1,25 @@
+// According to the Research, the below code is used to protect the Routes : 
+
+
+// Middleware to check if the user is logged in
+function isAuthenticated(req, res, next) {
+  if (req.session && req.session.userId) {
+    return next();
+  } else {
+    res.redirect('/login');
+  }
+}
+
+Example:
+
+// Show Add Job page
+router.get('/add-job', isAuthenticated, (req, res) => {
+  const success = req.session.success || null;
+  const error = req.session.error || null;
+
+  // clear after reading (one-time)
+  req.session.success = null;
+  req.session.error = null;
+
+  res.render('Page/AddJob.ejs', { success, error });
+});

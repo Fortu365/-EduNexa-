@@ -27,14 +27,32 @@ app.use(express.static(path.join(__dirname, "public")));
 // Java script function that creates tables 
 function createTables() {
   const createTables =
-  "create table IF NOT EXISTS CreateAccount (account_id INT AUTO_INCREMENT PRIMARY KEY, full_names  VARCHAR(100) NOT NULL, email VARCHAR(100) UNIQUE, id_number VARCHAR(13) UNIQUE, phoneNumber VARCHAR(10) UNIQUE NOT NULL, username VARCHAR(100) NOT NULL, password VARCHAR(255) NOT NULL)";
+  `create table IF NOT EXISTS CreateAccount (account_id INT AUTO_INCREMENT PRIMARY KEY, 
+  full_names  VARCHAR(100) NOT NULL, 
+  email VARCHAR(100) UNIQUE, 
+  id_number VARCHAR(13) UNIQUE, 
+  phoneNumber VARCHAR(10) UNIQUE NOT NULL, 
+  username VARCHAR(100) NOT NULL, 
+  password VARCHAR(255) NOT NULL,
+  identity_document BLOB NULL,
+  matric_results BLOB NULL,
+  tertiary_qualification BLOB NULL,
+  academic_transcripts BLOB NULL,
+  motivational_letter BLOB NULL,
+  supporting_documents BLOB NULL)`;
+
   const db_statement = db.prepare(createTables);
   db_statement.run();
 
   console.log("tables created");
+  console.log(db_statement.run());
 }
-createTables();
+console.log(createTables());
 
+// const info = db.prepare("PRAGMA table_info(CreateAccount);").all();
+
+// Display it
+// console.log(info);
 
 // Route 
 app.get("/", (req, res) => {
@@ -49,6 +67,10 @@ app.get("/user-welcome", (req, res) => {
 // Route to the Create Profile 
 app.get("/create-profile", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "create-profile.html"));
+});
+
+app.post("/update-profile", (req, res) => {
+  console.log(req.body['matric_results']);
 });
 
 // Route to the Attach profile image
@@ -86,6 +108,7 @@ app.post('/upload-profile-image', upload.single('profileImage'), (req, res) => {
   console.log('✅ File saved successfully at:', req.file.path);
   res.json({ message: '✅ File uploaded successfully!' });
 });
+
 
 
 // Code Edits Ends
