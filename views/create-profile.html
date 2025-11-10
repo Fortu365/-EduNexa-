@@ -1,835 +1,1051 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>EduNexa | Create Your Profile</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>EduNexa | Create Your Profile</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
+    <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #9b59b6;
+        --light-color: #f8f9fa;
+        --success-color: #2ecc71;
+        --warning-color: #f39c12;
+        --danger-color: #e74c3c;
+      }
 
-  <style>
-    :root {
-      --primary-color: #3498db;
-      --secondary-color: #2c3e50;
-      --accent-color: #9b59b6;
-      --light-color: #f8f9fa;
-      --success-color: #2ecc71;
-      --warning-color: #f39c12;
-      --danger-color: #e74c3c;
-    }
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-    }
-    
-    .main-header {
-      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-      padding: 15px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    
-    .logo a {
-      color: white;
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    
-    .logo a i {
-      color: var(--accent-color);
-      margin-right: 8px;
-    }
-    
-    .logo a em {
-      font-style: normal;
-      color: var(--accent-color);
-    }
-    
-    .main-menu {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .main-menu li a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-    }
-    
-    .main-menu li a i {
-      margin-right: 8px;
-    }
-    
-    .main-menu li a:hover {
-      background-color: rgba(255,255,255,0.1);
-    }
-    
-    .section-heading {
-      margin-bottom: 40px;
-    }
-    
-    .section-heading h2 {
-      font-weight: 700;
-      color: var(--secondary-color);
-      position: relative;
-      padding-bottom: 15px;
-    }
-    
-    .section-heading h2:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-    }
-    
-    .section-heading p {
-      color: #666;
-      max-width: 600px;
-      margin: 15px auto 0;
-    }
-    
-    .profile-form {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-      padding: 30px;
-      margin-bottom: 40px;
-    }
-    
-    .form-section {
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .form-section:last-of-type {
-      border-bottom: none;
-    }
-    
-    .section-title {
-      font-weight: 600;
-      color: var(--secondary-color);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .section-title i {
-      margin-right: 10px;
-      color: var(--primary-color);
-    }
-    
-    .form-label {
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: #444;
-    }
-    
-    .form-control, .form-select {
-      border-radius: 6px;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      transition: all 0.3s ease;
-    }
-    
-    .form-control:focus, .form-select:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
-    }
-    
-    .file-upload-container {
-      position: relative;
-      margin-bottom: 15px;
-    }
-    
-    .file-upload-label {
-      display: block;
-      padding: 15px;
-      background-color: #f8f9fa;
-      border: 2px dashed #ced4da;
-      border-radius: 6px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .file-upload-label:hover {
-      border-color: var(--primary-color);
-      background-color: rgba(52, 152, 219, 0.05);
-    }
-    
-    .file-upload-label i {
-      font-size: 24px;
-      color: var(--primary-color);
-      margin-bottom: 10px;
-      display: block;
-    }
-    
-    .file-input {
-      position: absolute;
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      cursor: pointer;
-    }
-    
-    .file-name {
-      margin-top: 8px;
-      font-size: 0.85rem;
-      color: #666;
-    }
-    
-    .required-field::after {
-      content: '*';
-      color: var(--danger-color);
-      margin-left: 4px;
-    }
-    
-    .submit-btn {
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      border: none;
-      padding: 12px 40px;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-    }
-    
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-    }
-    
-    footer {
-      background-color: var(--secondary-color);
-      color: white;
-      padding: 20px 0;
-      margin-top: 40px;
-    }
-    
-    .progress-indicator {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 30px;
-      position: relative;
-    }
-    
-    .progress-indicator:before {
-      content: '';
-      position: absolute;
-      top: 15px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: #e9ecef;
-      z-index: 1;
-    }
-    
-    .progress-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .step-number {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #e9ecef;
-      color: #6c757d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      margin-bottom: 8px;
-      transition: all 0.3s ease;
-    }
-    
-    .step-label {
-      font-size: 0.85rem;
-      color: #6c757d;
-      font-weight: 500;
-    }
-    
-    .progress-step.active .step-number {
-      background-color: var(--primary-color);
-      color: white;
-    }
-    
-    .progress-step.active .step-label {
-      color: var(--primary-color);
-    }
-    
-    .progress-step.completed .step-number {
-      background-color: var(--success-color);
-      color: white;
-    }
-    
-    .form-section {
-      display: none;
-    }
-    
-    .form-section.active {
-      display: block;
-    }
-    
-    .form-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-    }
-    
-    .btn-outline-primary {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
-    }
-    
-    .btn-outline-primary:hover {
-      background-color: var(--primary-color);
-      color: white;
-    }
-    
-    @media (max-width: 768px) {
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .main-header {
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo a {
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .logo a i {
+        color: var(--accent-color);
+        margin-right: 8px;
+      }
+
+      .logo a em {
+        font-style: normal;
+        color: var(--accent-color);
+      }
+
+      .main-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-menu li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      .main-menu li a i {
+        margin-right: 8px;
+      }
+
+      .main-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .section-heading {
+        margin-bottom: 40px;
+      }
+
+      .section-heading h2 {
+        font-weight: 700;
+        color: var(--secondary-color);
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-heading h2:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .section-heading p {
+        color: #666;
+        max-width: 600px;
+        margin: 15px auto 0;
+      }
+
       .profile-form {
-        padding: 20px 15px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+        margin-bottom: 40px;
       }
-      
+
+      .form-section {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .form-section:last-of-type {
+        border-bottom: none;
+      }
+
+      .section-title {
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .section-title i {
+        margin-right: 10px;
+        color: var(--primary-color);
+      }
+
+      .form-label {
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: #444;
+      }
+
+      .form-control,
+      .form-select {
+        border-radius: 6px;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+      }
+
+      .file-upload-container {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .file-upload-label {
+        display: block;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border: 2px dashed #ced4da;
+        border-radius: 6px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .file-upload-label:hover {
+        border-color: var(--primary-color);
+        background-color: rgba(52, 152, 219, 0.05);
+      }
+
+      .file-upload-label i {
+        font-size: 24px;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .file-input {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+      }
+
+      .file-name {
+        margin-top: 8px;
+        font-size: 0.85rem;
+        color: #666;
+      }
+
+      .required-field::after {
+        content: "*";
+        color: var(--danger-color);
+        margin-left: 4px;
+      }
+
+      .submit-btn {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border: none;
+        padding: 12px 40px;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+      }
+
+      footer {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 20px 0;
+        margin-top: 40px;
+      }
+
       .progress-indicator {
-        flex-wrap: wrap;
-        gap: 15px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        position: relative;
       }
-      
+
       .progress-indicator:before {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #e9ecef;
+        z-index: 1;
+      }
+
+      .progress-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .step-number {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #e9ecef;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .step-label {
+        font-size: 0.85rem;
+        color: #6c757d;
+        font-weight: 500;
+      }
+
+      .progress-step.active .step-number {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .progress-step.active .step-label {
+        color: var(--primary-color);
+      }
+
+      .progress-step.completed .step-number {
+        background-color: var(--success-color);
+        color: white;
+      }
+
+      .form-section {
         display: none;
       }
-    }
-  </style>
-</head>
-<body>
 
-<header class="main-header clearfix">
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="logo">
-        <a href="#"><i class="fa fa-graduation-cap"></i> <em>Edu</em>Nexa</a>
-      </div>
-      <nav class="main-nav">
-        <ul class="main-menu">
-          <li><a href="user-welcome"><i class="fa-solid fa-house"></i> Home</a></li>
-          <li><a href="#profile-section"><i class="fa-solid fa-user"></i> Create Profile</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+      .form-section.active {
+        display: block;
+      }
 
-<section class="section contact py-5" id="profile-section">
-  <div class="container">
-    <div class="section-heading text-center">
-      <h2>Create Your EduNexa Profile</h2>
-      <p>Upload your academic documents and personal information to get started with your educational journey.</p>
-    </div>
+      .form-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
 
-    <div class="progress-indicator">
-      <div class="progress-step active" data-step="1">
-        <div class="step-number">1</div>
-        <div class="step-label">Personal Info</div>
-      </div>
-      <div class="progress-step" data-step="2">
-        <div class="step-number">2</div>
-        <div class="step-label">Documents</div>
-      </div>
-      <div class="progress-step" data-step="3">
-        <div class="step-number">3</div>
-        <div class="step-label">Statement</div>
-      </div>
-      <div class="progress-step" data-step="4">
-        <div class="step-number">4</div>
-        <div class="step-label">Review</div>
-      </div>
-    </div>
+      .btn-outline-primary {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+      }
 
-    <form id="profileForm" class="profile-form" enctype="multipart/form-data">
-      <!-- Step 1: Personal Information -->
-      <div class="form-section active" id="step-1">
-        <h4 class="section-title"><i class="fa-solid fa-user-circle"></i> Personal Information</h4>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label required-field">Full Name</label>
-            <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Enter your full name" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label required-field">Email Address</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="your.email@example.com" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label required-field">Phone Number</label>
-            <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="+1 (555) 123-4567" required>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label required-field">ID or Passport Number</label>
-            <input type="text" name="id_number" id="id_number" class="form-control" placeholder="Enter your ID/Passport number" required>
-          </div>
-          <div class="col-12 mb-3">
-            <label class="form-label required-field">Residential Address</label>
-            
-            <textarea  rows="5" cols="40" type="text" name="address" id="address" class="form-control" placeholder="Enter your complete address" required>
+      .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
 
-            </textarea>
+      @media (max-width: 768px) {
+        .profile-form {
+          padding: 20px 15px;
+        }
+
+        .progress-indicator {
+          flex-wrap: wrap;
+          gap: 15px;
+        }
+
+        .progress-indicator:before {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header clearfix">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="logo">
+            <a href="#"
+              ><i class="fa fa-graduation-cap"></i> <em>Edu</em>Nexa</a
+            >
           </div>
-        </div>
-        <div class="form-navigation">
-          <div></div>
-          <button type="button" class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right ms-1"></i></button>
+          <nav class="main-nav">
+            <ul class="main-menu">
+              <li>
+                <a href="user-welcome"
+                  ><i class="fa-solid fa-house"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="#profile-section"
+                  ><i class="fa-solid fa-user"></i> Create Profile</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
+    </header>
 
-      <!-- Step 2: Document Uploads -->
-      <div class="form-section" id="step-2">
-        <h4 class="section-title"><i class="fa-solid fa-file-upload"></i> Required Documents</h4>
-        <p class="text-muted mb-4">Please upload the following documents in PDF format. Required documents are marked with an asterisk (*).</p>
-        
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <label class="form-label required-field">Certified Copy of ID/Passport</label>
-            <div class="file-upload-container">
-              <label class="file-upload-label">
-                <i class="fa-solid fa-id-card"></i>
-                <span>Click to upload ID/Passport</span>
-                <input type="file" name="identity_document" id="identity_document" accept="application/pdf" class="file-input" required>
-              </label>
-              <div class="file-name"></div>
+    <section class="section contact py-5" id="profile-section">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Create Your EduNexa Profile</h2>
+          <p>
+            Upload your academic documents and personal information to get
+            started with your educational journey.
+          </p>
+        </div>
+
+        <div class="progress-indicator">
+          <div class="progress-step active" data-step="1">
+            <div class="step-number">1</div>
+            <div class="step-label">Personal Info</div>
+          </div>
+          <div class="progress-step" data-step="2">
+            <div class="step-number">2</div>
+            <div class="step-label">Documents</div>
+          </div>
+          <div class="progress-step" data-step="3">
+            <div class="step-number">3</div>
+            <div class="step-label">Statement</div>
+          </div>
+          <div class="progress-step" data-step="4">
+            <div class="step-number">4</div>
+            <div class="step-label">Review</div>
+          </div>
+        </div>
+
+        <form
+          id="profileForm"
+          class="profile-form"
+          enctype="multipart/form-data"
+        >
+          <!-- Step 1: Personal Information -->
+          <div class="form-section active" id="step-1">
+            <h4 class="section-title">
+              <i class="fa-solid fa-user-circle"></i> Personal Information
+            </h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <input type="hidden" name="username" id="username" value="" />
+                <label class="form-label required-field">Full Name</label>
+                <input
+                  type="text"
+                  name="fullname"
+                  id="fullname"
+                  class="form-control"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label required-field">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label required-field">Phone Number</label>
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  class="form-control"
+                  placeholder="+1 (555) 123-4567"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label required-field"
+                  >ID or Passport Number</label
+                >
+                <input
+                  type="text"
+                  name="id_number"
+                  id="id_number"
+                  class="form-control"
+                  placeholder="Enter your ID/Passport number"
+                  required
+                />
+              </div>
+              <div class="col-12 mb-3">
+                <label class="form-label required-field"
+                  >Residential Address</label
+                >
+
+                <textarea
+                  rows="5"
+                  cols="40"
+                  type="text"
+                  name="address"
+                  id="address"
+                  class="form-control"
+                  placeholder="Enter your complete address"
+                  required
+                >
+                </textarea>
+              </div>
+            </div>
+            <div class="form-navigation">
+              <div></div>
+              <button type="button" class="btn btn-primary next-btn">
+                Next <i class="fa-solid fa-arrow-right ms-1"></i>
+              </button>
             </div>
           </div>
-          
-          <div class="col-md-6 mb-4">
-            <label class="form-label required-field">Matric Results / Latest Academic Results</label>
-            <div class="file-upload-container">
-              <label class="file-upload-label">
-                <i class="fa-solid fa-file-lines"></i>
-                <span>Click to upload Results</span>
-                <input type="file" name="matric_results" id="matric_results" accept="application/pdf" class="file-input" required>
-              </label>
-              <div class="file-name"></div>
+
+          <!-- Step 2: Document Uploads -->
+          <div class="form-section" id="step-2">
+            <h4 class="section-title">
+              <i class="fa-solid fa-file-upload"></i> Required Documents
+            </h4>
+            <p class="text-muted mb-4">
+              Please upload the following documents in PDF format. Required
+              documents are marked with an asterisk (*).
+            </p>
+
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <label class="form-label required-field"
+                  >Certified Copy of ID/Passport</label
+                >
+                <div class="file-upload-container">
+                  <label class="file-upload-label">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Click to upload ID/Passport</span>
+                    <input
+                      type="file"
+                      name="identity_document"
+                      id="identity_document"
+                      accept="application/pdf"
+                      class="file-input"
+                      required
+                    />
+                  </label>
+                  <div class="file-name"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <label class="form-label required-field"
+                  >Matric Results / Latest Academic Results</label
+                >
+                <div class="file-upload-container">
+                  <label class="file-upload-label">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Click to upload Results</span>
+                    <input
+                      type="file"
+                      name="matric_results"
+                      id="matric_results"
+                      accept="application/pdf"
+                      class="file-input"
+                      required
+                    />
+                  </label>
+                  <div class="file-name"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <label class="form-label"
+                  >National Senior Certificate / Tertiary Qualification</label
+                >
+                <div class="file-upload-container">
+                  <label class="file-upload-label">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Click to upload Certificate</span>
+                    <input
+                      type="file"
+                      name="tertiary_qualification"
+                      id="tertiary_qualification"
+                      accept="application/pdf"
+                      class="file-input"
+                    />
+                  </label>
+                  <div class="file-name"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <label class="form-label"
+                  >Academic Transcripts (if applicable)</label
+                >
+                <div class="file-upload-container">
+                  <label class="file-upload-label">
+                    <i class="fa-solid fa-scroll"></i>
+                    <span>Click to upload Transcripts</span>
+                    <input
+                      type="file"
+                      name="academic_transcripts"
+                      id="academic_transcripts"
+                      accept="application/pdf"
+                      class="file-input"
+                    />
+                  </label>
+                  <div class="file-name"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <label class="form-label required-field"
+                  >Motivational Letter</label
+                >
+                <div class="file-upload-container">
+                  <label class="file-upload-label">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>Click to upload Letter</span>
+                    <input
+                      type="file"
+                      name="motivational_letter"
+                      id="motivational_letter"
+                      accept="application/pdf"
+                      class="file-input"
+                      required
+                    />
+                  </label>
+                  <div class="file-name"></div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <label class="form-label"
+                  >Supporting Documents (optional)</label
+                >
+                <div class="file-upload-container">
+                  <label class="file-upload-label">
+                    <i class="fa-solid fa-folder-plus"></i>
+                    <span>Click to upload Additional Files</span>
+                    <input
+                      type="file"
+                      name="supporting_documents"
+                      id="supporting_documents"
+                      accept="application/pdf"
+                      class="file-input"
+                    />
+                  </label>
+                  <div class="file-name"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-navigation">
+              <button type="button" class="btn btn-outline-primary prev-btn">
+                <i class="fa-solid fa-arrow-left me-1"></i> Previous
+              </button>
+              <button type="button" class="btn btn-primary next-btn">
+                Next <i class="fa-solid fa-arrow-right ms-1"></i>
+              </button>
             </div>
           </div>
-          
-          <div class="col-md-6 mb-4">
-            <label class="form-label">National Senior Certificate / Tertiary Qualification</label>
-            <div class="file-upload-container">
-              <label class="file-upload-label">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <span>Click to upload Certificate</span>
-                <input type="file" name="tertiary_qualification" id="tertiary_qualification" accept="application/pdf" class="file-input">
-              </label>
-              <div class="file-name"></div>
+
+          <!-- Step 3: Personal Statement -->
+          <div class="form-section" id="step-3">
+            <h4 class="section-title">
+              <i class="fa-solid fa-comment-dots"></i> Personal Statement
+            </h4>
+            <p class="text-muted mb-4">
+              Tell us about yourself, your academic interests, and your future
+              goals.
+            </p>
+
+            <div class="mb-3">
+              <label class="form-label required-field"
+                >Short Personal Statement</label
+              >
+              <textarea
+                name="statement"
+                rows="6"
+                class="form-control"
+                placeholder="Tell us a bit about yourself, your academic background, interests, and future goals..."
+                required
+              ></textarea>
+              <div class="form-text">
+                This statement helps us understand your motivations and
+                aspirations.
+              </div>
+            </div>
+
+            <div class="form-navigation">
+              <button type="button" class="btn btn-outline-primary prev-btn">
+                <i class="fa-solid fa-arrow-left me-1"></i> Previous
+              </button>
+              <button type="button" class="btn btn-primary next-btn">
+                Next <i class="fa-solid fa-arrow-right ms-1"></i>
+              </button>
             </div>
           </div>
-          
-          <div class="col-md-6 mb-4">
-            <label class="form-label">Academic Transcripts (if applicable)</label>
-            <div class="file-upload-container">
-              <label class="file-upload-label">
-                <i class="fa-solid fa-scroll"></i>
-                <span>Click to upload Transcripts</span>
-                <input type="file" name="academic_transcripts" id="academic_transcripts" accept="application/pdf" class="file-input">
+
+          <!-- Step 4: Review and Submit -->
+          <div class="form-section" id="step-4">
+            <h4 class="section-title">
+              <i class="fa-solid fa-clipboard-check"></i> Review Your
+              Information
+            </h4>
+            <p class="text-muted mb-4">
+              Please review all the information you've provided before
+              submitting.
+            </p>
+
+            <div class="review-section mb-4 p-3 bg-light rounded">
+              <h5 class="mb-3">Personal Information</h5>
+              <div class="row">
+                <div class="col-md-6 mb-2">
+                  <strong>Full Name:</strong> <span id="review-fullname"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>Email:</strong> <span id="review-email"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>Phone:</strong> <span id="review-phone"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>ID/Passport:</strong> <span id="review-id"></span>
+                </div>
+                <div class="col-12 mb-2">
+                  <strong>Address:</strong> <span id="review-address"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-section mb-4 p-3 bg-light rounded">
+              <h5 class="mb-3">Uploaded Documents</h5>
+              <div class="row">
+                <div class="col-md-6 mb-2">
+                  <strong>ID/Passport:</strong> <span id="review-id-doc"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>Academic Results:</strong>
+                  <span id="review-results"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>Certificate:</strong>
+                  <span id="review-certificate"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>Transcripts:</strong>
+                  <span id="review-transcripts"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>Motivational Letter:</strong>
+                  <span id="review-motivation"></span>
+                </div>
+                <div class="col-md-6 mb-2">
+                  <strong>Supporting Docs:</strong>
+                  <span id="review-supporting"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-section mb-4 p-3 bg-light rounded">
+              <h5 class="mb-3">Personal Statement</h5>
+              <p id="review-statement"></p>
+            </div>
+
+            <div class="form-check mb-4">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="confirm-info"
+                required
+              />
+              <label class="form-check-label" for="confirm-info">
+                I confirm that all the information provided is accurate and
+                complete to the best of my knowledge.
               </label>
-              <div class="file-name"></div>
+            </div>
+
+            <div class="form-navigation">
+              <button type="button" class="btn btn-outline-primary prev-btn">
+                <i class="fa-solid fa-arrow-left me-1"></i> Previous
+              </button>
+              <button type="submit" class="btn btn-success submit-btn">
+                <i class="fa-solid fa-paper-plane me-1"></i> Submit Profile
+              </button>
             </div>
           </div>
-          
-          <div class="col-md-6 mb-4">
-            <label class="form-label required-field">Motivational Letter</label>
-            <div class="file-upload-container">
-              <label class="file-upload-label">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <span>Click to upload Letter</span>
-                <input type="file" name="motivational_letter" id="motivational_letter" accept="application/pdf" class="file-input" required>
-              </label>
-              <div class="file-name"></div>
-            </div>
-          </div>
-          
-          <div class="col-md-6 mb-4">
-            <label class="form-label">Supporting Documents (optional)</label>
-            <div class="file-upload-container">
-              <label class="file-upload-label">
-                <i class="fa-solid fa-folder-plus"></i>
-                <span>Click to upload Additional Files</span>
-                <input type="file" name="supporting_documents" id="supporting_documents" accept="application/pdf" class="file-input">
-              </label>
-              <div class="file-name"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-navigation">
-          <button type="button" class="btn btn-outline-primary prev-btn"><i class="fa-solid fa-arrow-left me-1"></i> Previous</button>
-          <button type="button" class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right ms-1"></i></button>
-        </div>
+        </form>
       </div>
+    </section>
 
-      <!-- Step 3: Personal Statement -->
-      <div class="form-section" id="step-3">
-        <h4 class="section-title"><i class="fa-solid fa-comment-dots"></i> Personal Statement</h4>
-        <p class="text-muted mb-4">Tell us about yourself, your academic interests, and your future goals.</p>
-        
-        <div class="mb-3">
-          <label class="form-label required-field">Short Personal Statement</label>
-          <textarea name="statement" rows="6" class="form-control" placeholder="Tell us a bit about yourself, your academic background, interests, and future goals..." required></textarea>
-          <div class="form-text">This statement helps us understand your motivations and aspirations.</div>
-        </div>
-        
-        <div class="form-navigation">
-          <button type="button" class="btn btn-outline-primary prev-btn"><i class="fa-solid fa-arrow-left me-1"></i> Previous</button>
-          <button type="button" class="btn btn-primary next-btn">Next <i class="fa-solid fa-arrow-right ms-1"></i></button>
-        </div>
+    <footer class="text-center py-4">
+      <div class="container">
+        <p class="mb-0">
+          <i class="fa fa-copyright"></i> 2025 EduNexa | Empowering Students
+          Everywhere
+        </p>
       </div>
+    </footer>
 
-      <!-- Step 4: Review and Submit -->
-      <div class="form-section" id="step-4">
-        <h4 class="section-title"><i class="fa-solid fa-clipboard-check"></i> Review Your Information</h4>
-        <p class="text-muted mb-4">Please review all the information you've provided before submitting.</p>
-        
-        <div class="review-section mb-4 p-3 bg-light rounded">
-          <h5 class="mb-3">Personal Information</h5>
-          <div class="row">
-            <div class="col-md-6 mb-2"><strong>Full Name:</strong> <span id="review-fullname"></span></div>
-            <div class="col-md-6 mb-2"><strong>Email:</strong> <span id="review-email"></span></div>
-            <div class="col-md-6 mb-2"><strong>Phone:</strong> <span id="review-phone"></span></div>
-            <div class="col-md-6 mb-2"><strong>ID/Passport:</strong> <span id="review-id"></span></div>
-            <div class="col-12 mb-2"><strong>Address:</strong> <span id="review-address"></span></div>
-          </div>
-        </div>
-        
-        <div class="review-section mb-4 p-3 bg-light rounded">
-          <h5 class="mb-3">Uploaded Documents</h5>
-          <div class="row">
-            <div class="col-md-6 mb-2"><strong>ID/Passport:</strong> <span id="review-id-doc"></span></div>
-            <div class="col-md-6 mb-2"><strong>Academic Results:</strong> <span id="review-results"></span></div>
-            <div class="col-md-6 mb-2"><strong>Certificate:</strong> <span id="review-certificate"></span></div>
-            <div class="col-md-6 mb-2"><strong>Transcripts:</strong> <span id="review-transcripts"></span></div>
-            <div class="col-md-6 mb-2"><strong>Motivational Letter:</strong> <span id="review-motivation"></span></div>
-            <div class="col-md-6 mb-2"><strong>Supporting Docs:</strong> <span id="review-supporting"></span></div>
-          </div>
-        </div>
-        
-        <div class="review-section mb-4 p-3 bg-light rounded">
-          <h5 class="mb-3">Personal Statement</h5>
-          <p id="review-statement"></p>
-        </div>
-        
-        <div class="form-check mb-4">
-          <input class="form-check-input" type="checkbox" id="confirm-info" required>
-          <label class="form-check-label" for="confirm-info">
-            I confirm that all the information provided is accurate and complete to the best of my knowledge.
-          </label>
-        </div>
-        
-        <div class="form-navigation">
-          <button type="button" class="btn btn-outline-primary prev-btn"><i class="fa-solid fa-arrow-left me-1"></i> Previous</button>
-          <button type="submit" class="btn btn-success submit-btn"><i class="fa-solid fa-paper-plane me-1"></i> Submit Profile</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Form navigation
+        const formSections = document.querySelectorAll(".form-section");
+        const progressSteps = document.querySelectorAll(".progress-step");
+        const nextButtons = document.querySelectorAll(".next-btn");
+        const prevButtons = document.querySelectorAll(".prev-btn");
+        const fileInputs = document.querySelectorAll(".file-input");
 
-<footer class="text-center py-4">
-  <div class="container">
-    <p class="mb-0"><i class="fa fa-copyright"></i> 2025 EduNexa | Empowering Students Everywhere</p>
-  </div>
-</footer>
+        let currentStep = 1;
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Form navigation
-  const formSections = document.querySelectorAll('.form-section');
-  const progressSteps = document.querySelectorAll('.progress-step');
-  const nextButtons = document.querySelectorAll('.next-btn');
-  const prevButtons = document.querySelectorAll('.prev-btn');
-  const fileInputs = document.querySelectorAll('.file-input');
-  
-  let currentStep = 1;
-  
-  // Update file names when files are selected
-  fileInputs.forEach(input => {
-    input.addEventListener('change', function() {
-      const fileName = this.files[0] ? this.files[0].name : 'No file selected';
-      this.parentElement.nextElementSibling.textContent = fileName;
-    });
-  });
-  
-  // Next button functionality
-  nextButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // Validate current step before proceeding
-      if (validateStep(currentStep)) {
-        if (currentStep < 4) {
-          // Update progress indicator
-          progressSteps[currentStep - 1].classList.remove('active');
-          progressSteps[currentStep - 1].classList.add('completed');
-          
-          currentStep++;
-          progressSteps[currentStep - 1].classList.add('active');
-          
-          // Show next section
-          formSections.forEach(section => section.classList.remove('active'));
-          document.getElementById(`step-${currentStep}`).classList.add('active');
-          
-          // If moving to review step, populate review data
-          if (currentStep === 4) {
-            populateReviewData();
+        // Update file names when files are selected
+        fileInputs.forEach((input) => {
+          input.addEventListener("change", function () {
+            const fileName = this.files[0]
+              ? this.files[0].name
+              : "No file selected";
+            this.parentElement.nextElementSibling.textContent = fileName;
+          });
+        });
+
+        // Next button functionality
+        nextButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Validate current step before proceeding
+            if (validateStep(currentStep)) {
+              if (currentStep < 4) {
+                // Update progress indicator
+                progressSteps[currentStep - 1].classList.remove("active");
+                progressSteps[currentStep - 1].classList.add("completed");
+
+                currentStep++;
+                progressSteps[currentStep - 1].classList.add("active");
+
+                // Show next section
+                formSections.forEach((section) =>
+                  section.classList.remove("active")
+                );
+                document
+                  .getElementById(`step-${currentStep}`)
+                  .classList.add("active");
+
+                // If moving to review step, populate review data
+                if (currentStep === 4) {
+                  populateReviewData();
+                }
+              }
+            }
+          });
+        });
+
+        // Previous button functionality
+        prevButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            if (currentStep > 1) {
+              // Update progress indicator
+              progressSteps[currentStep - 1].classList.remove("active");
+
+              currentStep--;
+              progressSteps[currentStep - 1].classList.add("active");
+              progressSteps[currentStep - 1].classList.remove("completed");
+
+              // Show previous section
+              formSections.forEach((section) =>
+                section.classList.remove("active")
+              );
+              document
+                .getElementById(`step-${currentStep}`)
+                .classList.add("active");
+            }
+          });
+        });
+
+        // Form validation for each step
+        function validateStep(step) {
+          const currentSection = document.getElementById(`step-${step}`);
+          const requiredInputs = currentSection.querySelectorAll("[required]");
+          let isValid = true;
+
+          requiredInputs.forEach((input) => {
+            if (!input.value.trim()) {
+              input.classList.add("is-invalid");
+              isValid = false;
+            } else {
+              input.classList.remove("is-invalid");
+            }
+          });
+
+          // Special validation for file inputs
+          if (step === 2) {
+            const requiredFiles = currentSection.querySelectorAll(
+              'input[type="file"][required]'
+            );
+            requiredFiles.forEach((fileInput) => {
+              if (!fileInput.files.length) {
+                fileInput.parentElement.classList.add("is-invalid");
+                isValid = false;
+              } else {
+                fileInput.parentElement.classList.remove("is-invalid");
+              }
+            });
           }
-        }
-      }
-    });
-  });
-  
-  // Previous button functionality
-  prevButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      if (currentStep > 1) {
-        // Update progress indicator
-        progressSteps[currentStep - 1].classList.remove('active');
-        
-        currentStep--;
-        progressSteps[currentStep - 1].classList.add('active');
-        progressSteps[currentStep - 1].classList.remove('completed');
-        
-        // Show previous section
-        formSections.forEach(section => section.classList.remove('active'));
-        document.getElementById(`step-${currentStep}`).classList.add('active');
-      }
-    });
-  });
-  
-  // Form validation for each step
-  function validateStep(step) {
-    const currentSection = document.getElementById(`step-${step}`);
-    const requiredInputs = currentSection.querySelectorAll('[required]');
-    let isValid = true;
-    
-    requiredInputs.forEach(input => {
-      if (!input.value.trim()) {
-        input.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        input.classList.remove('is-invalid');
-      }
-    });
-    
-    // Special validation for file inputs
-    if (step === 2) {
-      const requiredFiles = currentSection.querySelectorAll('input[type="file"][required]');
-      requiredFiles.forEach(fileInput => {
-        if (!fileInput.files.length) {
-          fileInput.parentElement.classList.add('is-invalid');
-          isValid = false;
-        } else {
-          fileInput.parentElement.classList.remove('is-invalid');
-        }
-      });
-    }
-    
-    if (!isValid) {
-      alert('Please fill in all required fields before proceeding.');
-    }
-    
-    return isValid;
-  }
-  
-  // Populate review data
-  function populateReviewData() {
-    document.getElementById('review-fullname').textContent = document.querySelector('input[name="fullname"]').value;
-    document.getElementById('review-email').textContent = document.querySelector('input[name="email"]').value;
-    document.getElementById('review-phone').textContent = document.querySelector('input[name="phoneNumber"]').value;
-    document.getElementById('review-id').textContent = document.querySelector('input[name="id_number"]').value;
-    document.getElementById('review-address').textContent = document.querySelector('input[name="address"]').value;
-    document.getElementById('review-statement').textContent = document.querySelector('textarea[name="statement"]').value;
-    
-    // File names
-    document.getElementById('review-id-doc').textContent = document.querySelector('input[name="identity_document"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-results').textContent = document.querySelector('input[name="matric_results"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-certificate').textContent = document.querySelector('input[name="tertiary_qualification"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-transcripts').textContent = document.querySelector('input[name="academic_transcripts"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-motivation').textContent = document.querySelector('input[name="motivational_letter"]').files[0]?.name || 'Not uploaded';
-    document.getElementById('review-supporting').textContent = document.querySelector('input[name="supporting_documents"]').files[0]?.name || 'Not uploaded';
-  }
-  
-  // Form submission
-  const profileForm = document.getElementById('profileForm');
-  profileForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
 
-    const matricFile = document.getElementById("matric_results").files[0];
-    console.log("Matric file:", matricFile);
-    console.log("Fortunate");
-    
-    if (!document.getElementById('confirm-info').checked) {
-      alert('Please confirm that all information is accurate before submitting.');
-      return;
-    }
-    
-    const formData = new FormData(profileForm);
-    
-    // Show loading state
-    const submitBtn = profileForm.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-1"></i> Submitting...';
-    submitBtn.disabled = true;
-    
-    try {
-      // In a real application, you would send this to your server
-      // const res = await fetch('/update-profile', {
-      //   method: 'POST',
-      //   body: formData
-      // });
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Simulate successful submission
-      alert('✅ Profile created successfully!');
-      
-      // Reset form
-      profileForm.reset();
-      currentStep = 1;
-      
-      // Reset progress indicator
-      progressSteps.forEach(step => {
-        step.classList.remove('active', 'completed');
-      });
-      progressSteps[0].classList.add('active');
-      
-      // Show first section
-      formSections.forEach(section => section.classList.remove('active'));
-      document.getElementById('step-1').classList.add('active');
-      
-    } catch (err) {
-      alert('❌ Failed to submit profile. Please try again.');
-      console.error(err);
-    } finally {
-      submitBtn.innerHTML = originalText;
-      submitBtn.disabled = false;
-    }
-  });
-});
+          if (!isValid) {
+            alert("Please fill in all required fields before proceeding.");
+          }
 
-// Fetching data from the db 
-  window.onload = function() {
-  
-
-  // New Code , Retrieving data from the db 
-  async function getPersonalData() {
-
-  try {
-      // Send POST request
-      const response = await fetch('/get-personal-info', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json' // tell server you're sending JSON
-        },
-        body: JSON.stringify({"username": "hlodi@gmail.com"}) // convert object to JSON string
-      });
-
-      // Handle server response
-      const result = await response.json();
-      console.log(result);
-
-      let output = result;
-
-      if (response.ok) {
-
-        document.getElementById("fullname").value = output[0]["full_names"]
-        document.getElementById("email").value = output[0]["email"]
-        document.getElementById("id_number").value = output[0]["id_number"]
-        document.getElementById("phoneNumber").value = output[0]["phoneNumber"]
-        document.getElementById("address").value = ""
-
-        if(output['error']){
-          alert('❌ User Not Yet Registered');
-        }else{
-          alert(output['username']+' ✅ Logged In Successful !');
+          return isValid;
         }
 
-      } else {
-        alert('❌ Error: ' + (result.message || 'Something Went Wrong'));
-      }
+        // Populate review data
+        function populateReviewData() {
+          document.getElementById("review-fullname").textContent =
+            document.querySelector('input[name="fullname"]').value;
+          document.getElementById("review-email").textContent =
+            document.querySelector('input[name="email"]').value;
+          document.getElementById("review-phone").textContent =
+            document.querySelector('input[name="phoneNumber"]').value;
+          document.getElementById("review-id").textContent =
+            document.querySelector('input[name="id_number"]').value;
+          document.getElementById("review-address").textContent =
+            document.querySelector('input[name="address"]').value;
+          document.getElementById("review-statement").textContent =
+            document.querySelector('textarea[name="statement"]').value;
 
-    } catch (error) {
-      console.error('Error:', error);
-      alert('❌ Failed to send data.');
-    }
-  }
+          // File names
+          document.getElementById("review-id-doc").textContent =
+            document.querySelector('input[name="identity_document"]').files[0]
+              ?.name || "Not uploaded";
+          document.getElementById("review-results").textContent =
+            document.querySelector('input[name="matric_results"]').files[0]
+              ?.name || "Not uploaded";
+          document.getElementById("review-certificate").textContent =
+            document.querySelector('input[name="tertiary_qualification"]')
+              .files[0]?.name || "Not uploaded";
+          document.getElementById("review-transcripts").textContent =
+            document.querySelector('input[name="academic_transcripts"]')
+              .files[0]?.name || "Not uploaded";
+          document.getElementById("review-motivation").textContent =
+            document.querySelector('input[name="motivational_letter"]').files[0]
+              ?.name || "Not uploaded";
+          document.getElementById("review-supporting").textContent =
+            document.querySelector('input[name="supporting_documents"]')
+              .files[0]?.name || "Not uploaded";
+        }
 
-  getPersonalData();
-    
-};
+        // Form submission
+        const profileForm = document.getElementById("profileForm");
+        profileForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
 
-// New Code Edits  
-const form = document.getElementById('profileForm');
+          const matricFile = document.getElementById("matric_results").files[0];
+          console.log("Matric file:", matricFile);
+          console.log("Fortunate");
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // stop form from reloading
+          if (!document.getElementById("confirm-info").checked) {
+            alert(
+              "Please confirm that all information is accurate before submitting."
+            );
+            return;
+          }
 
-    // Collect form data
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries()); // convert to plain JS object
+          const formData = new FormData(profileForm);
 
-    console.log(data);
+          // Show loading state
+          const submitBtn = profileForm.querySelector(".submit-btn");
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin me-1"></i> Submitting...';
+          submitBtn.disabled = true;
 
+          try {
+            // In a real application, you would send this to your server
+            // const res = await fetch('/update-profile', {
+            //   method: 'POST',
+            //   body: formData
+            // });
 
-    try {
-      // Send POST request
-      const response = await fetch('/update-profile', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json' // tell server you're sending JSON
-        },
-        body: JSON.stringify(data) // convert object to JSON string
+            // Simulate API call
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            // Simulate successful submission
+            alert("✅ Profile created successfully!");
+
+            // Reset form
+            profileForm.reset();
+            currentStep = 1;
+
+            // Reset progress indicator
+            progressSteps.forEach((step) => {
+              step.classList.remove("active", "completed");
+            });
+            progressSteps[0].classList.add("active");
+
+            // Show first section
+            formSections.forEach((section) =>
+              section.classList.remove("active")
+            );
+            document.getElementById("step-1").classList.add("active");
+          } catch (err) {
+            alert("❌ Failed to submit profile. Please try again.");
+            console.error(err);
+          } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }
+        });
       });
 
-      // Handle server response
-      const result = await response.json();
-      console.log(result);
+      // Fetching data from the db
+      window.onload = async function () {
+        try {
+          const username = localStorage.getItem("username");
+          if (!username) throw new Error("No username found in localStorage");
 
-      if (response.ok) {
-        alert('✅ Data Sent Successfully!');
-      } else {
-        alert('❌ Error: ' + (result.message || 'Something Went Wrong'));
-      }
+          const response = await fetch("/get-personal-info", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username }),
+          });
 
-    } catch (error) {
-      console.error('Error:', error);
-      alert('❌ Failed to send data.');
-    }
-  });
+          const output = await response.json();
 
-</script>
+          if (response.ok && output.length > 0) {
+            document.getElementById("fullname").value = output[0]["full_names"];
+            document.getElementById("email").value = output[0]["email"];
+            document.getElementById("id_number").value = output[0]["id_number"];
+            document.getElementById("phoneNumber").value =
+              output[0]["phoneNumber"];
+            document.getElementById("address").value =
+              output[0]["address"] || "";
+            document.getElementById("username").value = output[0]["username"];
+          } else {
+            alert("❌ User not registered.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("❌ Failed to fetch user data.");
+        }
+      };
 
-</body>
+      // New Code Edits
+      const profileForm = document.getElementById("profileForm");
+      profileForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(profileForm);
+
+        try {
+          const response = await fetch("/api/profile/update", {
+            method: "POST",
+            body: formData,
+          });
+
+          if (!response.ok) {
+            throw new Error("Failed to submit profile. Please try again.");
+          }
+
+          const result = await response.json();
+          alert("✅ Profile updated successfully!");
+
+          // Optional redirect to profile page or dashboard
+          window.location.href = "/user-profile";
+        } catch (error) {
+          console.error("Error:", error);
+          alert(
+            "❌ There was an error submitting your profile. Please try again."
+          );
+        }
+      });
+    </script>
+  </body>
 </html>
