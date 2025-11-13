@@ -73,6 +73,9 @@ function createTables() {
 // Run table creation
 createTables();
 
+// Allows the imported CSS files, be visible in the public folder
+app.use(express.static("public"));
+
 // ===============================
 // ✅ ROUTES (HTML / EJS FILES)
 // ===============================
@@ -90,6 +93,14 @@ app.get("/create-profile", (req, res) => {
 
 app.get("/attach-image", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "attach-image.html"));
+});
+
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "about.html"));
+});
+
+app.get("/contact", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "contact.html"));
 });
 
 // ===============================
