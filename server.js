@@ -76,31 +76,30 @@ createTables();
 // Allows the imported CSS files, be visible in the public folder
 app.use(express.static("public"));
 
-// ===============================
-// ✅ ROUTES (HTML / EJS FILES)
-// ===============================
+//  ROUTES ( EJS FILES)
+
 app.get("/", (req, res) => {
   res.render("index");
 });
 
 app.get("/user-welcome", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "user-welcome.html"));
+  res.render("user-welcome");
 });
 
 app.get("/create-profile", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "create-profile.html"));
+  res.render("create-profile");
 });
 
 app.get("/attach-image", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "attach-image.html"));
+  res.render("attach-image");
 });
 
 app.get("/about", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "about.html"));
+  res.render("about");
 });
 
 app.get("/contact", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "contact.html"));
+  res.render("contact");
 });
 
 // ===============================

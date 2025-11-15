@@ -60,19 +60,20 @@
             >
           </li>
           <li class="has-submenu">
-            <a href="about">
+            <a onclick="aboutUsFun()" href="about">
               <i class="fa-solid fa-circle-info"></i> About Us</a>
 
             <ul class="sub-menu">
-              <li><a href="about#featureDetails">Who we are?</a></li>
-              <li><a href="about#what-we-do">What we do?</a></li>
-              <li><a href="about#how-it-works">How it works?</a></li>
+              <li><a onclick="whoWeAreFun()" href="about#who-we-are">Who we are?</a></li>
+              <li><a onclick="whatWeDoFun()" href="about#what-we-do">What we do?</a></li>
+              <li><a onclick="howItWorksFun()" href="about#how-it-works">How it works?</a></li>
+              
             </ul>
           </li>
           <li>
             <a href="contact"><i class="fa-solid fa-envelope"></i> Contact</a>
           </li>
-
+         
 
           <li>
             <a href="#" class="external"
@@ -672,6 +673,24 @@
           alert("❌ Failed to send data.");
         }
       });
+
+      // Code Edits Starts 
+      function aboutUsFun(){
+        window.location.href = "about";
+      }
+
+      function whoWeAreFun(){
+        window.location.href = "about#who-we-are";
+      }
+
+      function whatWeDoFun(){
+        window.location.href = "about#what-we-do";
+      }
+
+      function howItWorksFun(){
+        window.location.href = "about#how-it-works";
+      }
+      // Code Edits Ends 
     </script>
   </body>
 </html>
