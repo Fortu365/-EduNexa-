@@ -161,6 +161,8 @@
       <label for="profileImage" class="upload-btn"><i class="fa fa-upload"></i> Choose Image</label>
       <input type="file" id="profileImage" name="profileImage" class="file-input" accept="image/*" required>
 
+      <!-- <input type="text" value="" id="username" name="username" hidden> -->
+
       <br>
       <button type="submit" class="submit-btn"><i class="fa fa-save"></i> Save Profile Image</button>
     </form>
@@ -222,9 +224,19 @@ fileInput.addEventListener('change', () => {
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const formData = new FormData();
-  formData.append('profileImage', fileInput.files[0]);
+  const username = localStorage.getItem('username');
 
+  const formData = new FormData();
+  const origin = fileInput.files[0];
+  const fileExtion = origin.name.split(".").pop();
+  const newFile = new File([origin], username + "." + fileExtion,
+  {
+    type: origin.type, 
+    lastModified: origin.lastModified
+  });
+
+  formData.append('profileImage', newFile);
+  
   const res = await fetch('/upload-profile-image', {
     method: 'POST',
     body: formData

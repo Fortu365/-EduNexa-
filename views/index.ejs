@@ -43,7 +43,7 @@
     <!--header-->
     <header class="main-header clearfix" role="header">
       <div class="logo">
-        <a href="#"><i class="fa fa-graduation-cap"></i> <em>Edu</em> Nexa</a>
+        <a href="#"><i class="fa fa-graduation-cap"></i> <f>Edu</em> Nexa</a>
       </div>
       <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
       <nav id="menu" class="main-nav" role="navigation">
@@ -71,7 +71,7 @@
             </ul>
           </li>
           <li>
-            <a href="contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+            <a onclick="contactUsFun()" href="contact"><i class="fa-solid fa-envelope"></i> Contact</a>
           </li>
          
 
@@ -663,6 +663,8 @@
               alert(output["username"] + " ✅ Logged In Successful !");
               localStorage.setItem("username", output["username"]);
               localStorage.setItem("full_names", output["full_names"]);
+              localStorage.setItem("profile_pic", output["profile_pic"]);
+              localStorage.setItem("address", output["address"]);
               window.location.href = "user-welcome";
             }
           } else {
@@ -689,6 +691,10 @@
 
       function howItWorksFun(){
         window.location.href = "about#how-it-works";
+      }
+
+      function contactUsFun(){
+        window.location.href = "contact";
       }
       // Code Edits Ends 
     </script>

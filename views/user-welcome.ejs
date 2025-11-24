@@ -929,15 +929,15 @@
 
       <div class="dashboard">
         <div class="card profile-card">
-          <img
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          <img id="profileImagePic"
+            src=""
             alt="Profile Image"
-            class="profile-image"
-          />
+            class="profile-image"/>
+
           <div class="profile-info">
             <h3 id="display-name">User</h3>
 
-            <p><i class="fa fa-map-marker-alt"></i> Cape Town, South Africa</p>
+            <p id="userAddress"><i class="fa fa-map-marker-alt"></i> Your Location </p>
             <div class="profile-stats">
               <!-- <div class="stat">
               <div class="stat-value">3</div>
@@ -1417,13 +1417,32 @@
         }
       });
 
+      function setProfilePic () {
+        fetch("/getAllImages")
+        .then(res => res.json())
+        .then(files => {
+            const results = files.filter(f => f.includes(localStorage.getItem("username")))
+            console.log(files);
+            document.getElementById("profileImagePic").src = "assets/images/" + results[0];
+           
+        });
+      };
+
+
       window.onload = function () {
         document.getElementById("full_names").innerHTML =
           localStorage.getItem("full_names");
 
         document.getElementById("display-name").innerHTML =
           localStorage.getItem("full_names");
+        
+        document.getElementById("userAddress").innerHTML = 
+         '<i class="fa fa-map-marker-alt"></i> '+ localStorage.getItem("address"); 
+         console.log(localStorage.getItem("address"));
+
+        setProfilePic();
       };
+
     </script>
   </body>
 </html>

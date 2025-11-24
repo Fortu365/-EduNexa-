@@ -102,17 +102,43 @@ app.get("/contact", (req, res) => {
   res.render("contact");
 });
 
+const imageFolderPath = path.join(__dirname, "public", "assets", "images");
+app.get("/getAllImages", (req, res) => {
+  fs.readdir(imageFolderPath, (err, files) => {
+    if(err) return res.status(404).send(err);
+    res.json(files);
+  });
+});
+
+app.use('/public/assets/images', express.static(imageFolderPath));
+
 // ===============================
 // ✅ PROFILE IMAGE UPLOAD
 // ===============================
-const uploadPath = path.join(__dirname, "uploads", "profile-images");
+// const uploadPath = path.join(__dirname, "uploads", "profile-images");
+const uploadPath = path.join(__dirname, "public", "assets", "images");
 fs.mkdirSync(uploadPath, { recursive: true });
 
+// const imageStorage = multer.diskStorage({
+//   destination: (_, __, cb) => cb(null, uploadPath),
+//   filename: (_, file, cb) =>
+//     cb(null, "SAmbo" + path.extname(file.originalname)),
+// });
+
+// Code Edits Starts from the above
+
 const imageStorage = multer.diskStorage({
-  destination: (_, __, cb) => cb(null, uploadPath),
-  filename: (_, file, cb) =>
-    cb(null, Date.now() + path.extname(file.originalname)),
+  destination: (req, file, cb) => {
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const username = req.body.username;
+    const ext = path.extname(file.originalname);
+    cb(null, file.originalname);
+  }
 });
+
+// Code Edits Ends
 
 const uploadImage = multer({ storage: imageStorage });
 
@@ -184,6 +210,7 @@ app.post("/login", (req, res) => {
     res.send({
       username: username,
       full_names: users[0].full_names,
+      address: users[0].address
     });
   } else {
     res.send({ error: "User Not Found" });
