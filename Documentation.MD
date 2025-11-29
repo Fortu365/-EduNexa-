@@ -10,6 +10,6 @@ apply (after you've chosen where you want to go, you follow steps provided on th
 
 NoteFlow(write student numbers and ITS pins of all institutions applied, and status/personal info) 
 
-AI (The AI e.g @mata allows you to ask any questions that doesn't make sense on the application)
+AI (The AI e.g. @mata allows you to ask any questions that doesn't make sense on the application)
 
 Logout()
