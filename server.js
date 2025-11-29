@@ -22,7 +22,7 @@ const db = new Database("./edu-nexa.db");
 
 // ===============================
 // ✅ VIEW ENGINE
-// ===============================
+// =============================== 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -101,6 +101,14 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
+
+app.get("/documents", (req, res) => {
+    res.render("documents");
+});
+
+// app.get("/documents.html", (req, res) => {
+//     res.sendFile(path.join(__dirname, 'views', 'documents.html'));
+// });
 
 const imageFolderPath = path.join(__dirname, "public", "assets", "images");
 app.get("/getAllImages", (req, res) => {
@@ -346,6 +354,7 @@ app.get("/notes/:username", (req, res) => {
   `);
 
   res.json(stmt.all(req.params.username));
+
 });
 
 app.post("/notes", (req, res) => {
@@ -362,6 +371,7 @@ app.post("/notes", (req, res) => {
   const info = stmt.run(username, title, content);
 
   res.json({ id: info.lastInsertRowid, username, title, content });
+  console.log({ id: info.lastInsertRowid, username, title, content });
 });
 
 app.delete("/notes/:id", (req, res) => {

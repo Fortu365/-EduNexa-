@@ -384,8 +384,8 @@
         <div class="section-heading text-center">
           <h2>Create Your EduNexa Profile</h2>
           <p>
-            Upload your academic documents and personal information to get
-            started with your educational journey.
+            Enter your personal information to get
+            started with your educational journey in 3 easy steps.
           </p>
         </div>
 
@@ -394,16 +394,16 @@
             <div class="step-number">1</div>
             <div class="step-label">Personal Info</div>
           </div>
-          <div class="progress-step" data-step="2">
+          <!-- <div class="progress-step" data-step="2">
             <div class="step-number">2</div>
             <div class="step-label">Documents</div>
-          </div>
+          </div> -->
           <div class="progress-step" data-step="3">
-            <div class="step-number">3</div>
+            <div class="step-number">2</div>
             <div class="step-label">Statement</div>
           </div>
           <div class="progress-step" data-step="4">
-            <div class="step-number">4</div>
+            <div class="step-number">3</div>
             <div class="step-label">Review</div>
           </div>
         </div>
@@ -493,7 +493,7 @@
           </div>
 
           <!-- Step 2: Document Uploads -->
-          <div class="form-section" id="step-2">
+          <div class="form-section" id="step-7">
             <h4 class="section-title">
               <i class="fa-solid fa-file-upload"></i> Required Documents
             </h4>
@@ -625,7 +625,7 @@
                   <div class="file-name"></div>
                 </div>
               </div>
-            </div>
+            </div> 
 
             <div class="form-navigation">
               <button type="button" class="btn btn-outline-primary prev-btn">
@@ -635,10 +635,10 @@
                 Next <i class="fa-solid fa-arrow-right ms-1"></i>
               </button>
             </div>
-          </div>
+          </div> 
 
-          <!-- Step 3: Personal Statement -->
-          <div class="form-section" id="step-3">
+          <!-- Step 2: Personal Statement -->
+          <div class="form-section" id="step-2">
             <h4 class="section-title">
               <i class="fa-solid fa-comment-dots"></i> Personal Statement
             </h4>
@@ -674,8 +674,8 @@
             </div>
           </div>
 
-          <!-- Step 4: Review and Submit -->
-          <div class="form-section" id="step-4">
+          <!-- Step 3: Review and Submit -->
+          <div class="form-section" id="step-3">
             <h4 class="section-title">
               <i class="fa-solid fa-clipboard-check"></i> Review Your
               Information
@@ -706,7 +706,7 @@
               </div>
             </div>
 
-            <div class="review-section mb-4 p-3 bg-light rounded">
+            <!-- <div class="review-section mb-4 p-3 bg-light rounded">
               <h5 class="mb-3">Uploaded Documents</h5>
               <div class="row">
                 <div class="col-md-6 mb-2">
@@ -733,7 +733,7 @@
                   <span id="review-supporting"></span>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="review-section mb-4 p-3 bg-light rounded">
               <h5 class="mb-3">Personal Statement</h5>
@@ -1035,6 +1035,12 @@
           }
 
           const result = await response.json();
+          /**           STATE MANAGEMENT
+           * The below comment set attributes on the browser using localStorage.setItem ....
+           * This is done done quick retrieval of data so that it doesn't search data from the database.
+          */
+          localStorage.setItem("address", profileForm.address.value);
+
           alert("✅ Profile updated successfully!");
 
           // Optional redirect to profile page or dashboard
