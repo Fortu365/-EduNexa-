@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduNexa | South African Universities</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ===========================
+        Custom Styling
+    ============================ -->
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #f8f9fa;
+            --border: #eaeaea;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: #333;
+        }
+
+        /* ===========================
+            Top Navigation Bar
+        ============================ */
+        .top-nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .top-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-text:hover {
+            opacity: 0.9;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            transform: translateX(-3px);
+            text-decoration: none;
+        }
+
+        /* ===========================
+            Header
+        ============================ */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 70px 0 50px;
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 10px auto 0;
+        }
+
+        /* ===========================
+            Category Titles
+        ============================ */
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .category-title i {
+            color: var(--accent);
+            margin-right: 12px;
+        }
+
+        /* ===========================
+            University Cards
+        ============================ */
+        .university-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .university-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+
+        .university-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+        }
+
+        .university-logo-container {
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding: 25px;
+            background: #fff;
+        }
+
+        .university-logo {
+            max-height: 110px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .university-info {
+            padding: 25px;
+        }
+
+        .university-type {
+            display: inline-block;
+            background: rgba(26,188,156,0.12);
+            color: var(--accent);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .university-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .university-link {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .university-link:hover {
+            color: var(--accent);
+        }
+
+        .university-link i {
+            margin-left: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* ===========================
+            Footer
+        ============================ */
+        .page-footer {
+            background: var(--primary);
+            padding: 45px 0;
+            color: #eee;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-note {
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        /* ===========================
+            Responsive
+        ============================ */
+        @media (max-width: 768px) {
+            .top-nav-container {
+                padding: 0 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .back-button {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1 { 
+                font-size: 2.2rem; 
+            }
+            
+            .category-title { 
+                font-size: 1.7rem; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================== Top Navigation Bar ============================ -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <div class="logo-container">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <a href="/" class="logo-text">Edu<span>Nexa</span></a>
+            </div>
+            <a href="/user-welcome" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </div>
+    </nav>
+
+    <!-- =========================== Header ============================ -->
+    <header class="page-header">
+        <div class="container">
+            <h1>South African Universities Directory</h1>
+            <p>Explore premier higher education institutions across South Africa, categorized by their academic focus and offerings.</p>
+        </div>
+    </header>
+
+    <!-- ===========================
+        Main Content
+    ============================ -->
+    <main class="container">
+
+        <!-- Traditional Universities -->
+         <br>
+        <section class="university-category">
+            <h2 class="category-title"><i class="fas fa-university"></i> Traditional Universities</h2>
+
+            <div class="university-grid">
+
+                <!-- UL -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Limpopo (UL) logo.png" 
+                             alt="University of Limpopo logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of Limpopo (UL)</h3>
+                        <a href="https://www.ul.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- University of Venda  -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Venda (UniVen) logo.png" 
+                             alt="University of Venda logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of Venda (UniVen)</h3>
+                        <a href="https://www.univen.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- UCT -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Cape Town.jpg" 
+                             alt="University of Cape Town Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <!-- <span class="university-type">Research University</span> -->
+                        <h3 class="university-name">University of Cape Town (UCT)</h3>
+                        <!-- <p>Africa's leading research university, located at the foot of Table Mountain.</p> -->
+                        <a href="https://www.uct.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wits -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Wits logo.jpeg" 
+                             alt="Wits Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <!-- <span class="university-type">Research University</span> -->
+                        <h3 class="university-name">University of the Witwatersrand (Wits)</h3>
+                        <a href="https://www.wits.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stellenbosch -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Stellenbosch University (SU) logo.jpeg" 
+                             alt="Stellenbosch University Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <!-- <span class="university-type">Research University</span> -->
+                        <h3 class="university-name">Stellenbosch University (SU)</h3>
+                        <!-- <p>One of South Africa's leading tertiary institutions based in the Winelands.</p> -->
+                        <a href="https://www.sun.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- UP -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Pretoria (UP) logo.png" 
+                             alt="UP Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <!-- <span class="university-type">Research University</span> -->
+                        <h3 class="university-name">University of Pretoria (UP)</h3>
+                        <a href="https://www.up.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Rhodes -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Rhodes University logo.png" 
+                             alt="Rhodes University Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Rhodes University</h3>
+                        <a href="https://www.ru.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Free State -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of the Free State (UFS) logo.png" 
+                             alt="University of the Free State logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of the Free State (UFS)</h3>
+                        <a href="https://www.ufs.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- University of KwaZulu-Natal (UKZN) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of KwaZulu-Natal (UKZN) logo.jpeg" 
+                             alt="University of KwaZulu-Natal logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of KwaZulu-Natal (UKZN)</h3>
+                        <a href="https://www.ukzn.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- North-West University  -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/North-West University (NWU) logo.png" 
+                             alt="University of the Free State logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">North-West University (NWU)</h3>
+                        <a href="https://www.nwu.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- University of the Western Cape -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of the Western Cape (UWC) logo.png" 
+                             alt="University of the Western Cape logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of the Western Cape (UWC)</h3>
+                        <a href="https://www.uwc.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- University of Fort Hare (UFH) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Fort Hare (UFH) logo.png" 
+                             alt="University of Fort Hare logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of Fort Hare (UFH)</h3>
+                        <a href="https://www.ufh.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- University of Zululand -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Zululand (UniZulu) logo.png" 
+                             alt="University of Zululand logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of Zululand (UniZulu)</h3>
+                        <a href="https://www.unizulu.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sefako Makgatho Health Sciences University -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Sefako Makgatho Health Sciences University (SMU) logo.png" 
+                             alt="Sefako Makgatho Health Sciences University logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Sefako Makgatho Health Sciences University (SMU)</h3>
+                        <a href="https://www.smu.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <br> <br>
+        <!-- Universities of Technology -->
+        <section class="university-category">
+            <h2 class="category-title"><i class="fas fa-cogs"></i> Universities of Technology</h2>
+
+            <div class="university-grid">
+
+                <!-- CPUT -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Cape Peninsula University of Technology (CPUT) logo.jpg" 
+                             alt="CPUT Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <!-- <span class="university-type">University of Technology</span> -->
+                        <h3 class="university-name">Cape Peninsula University of Technology (CPUT)</h3>
+                        <a href="https://www.cput.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TUT -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/TUT Logo.png"
+                             alt="TUT Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Tshwane University of Technology (TUT)</h3>
+                        <a href="https://www.tut.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Central University of Technology  -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Central University of Technology (CUT) logo.png" 
+                             alt="Central University of Technology logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Central University of Technology (CUT)</h3>
+                        <a href="https://www.cut.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DUT -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Durban University of Technology (DUT) logo.png" 
+                             alt="DUT Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Durban University of Technology (DUT)</h3>
+                        <a href="https://www.dut.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Vaal University of Technology (VUT) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Vaal University of Technology (VUT) logo.png" 
+                             alt="Vaal University of Technology logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Vaal University of Technology (VUT)</h3>
+                        <a href="https://www.vut.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mangosuthu University of Technology -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Mangosuthu University of Technology (MUT) logo.jpg" 
+                             alt="Mangosuthu University of Technology logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Mangosuthu University of Technology (MUT)</h3>
+                        <a href="https://www.mut.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Comprehensive Universities -->
+         <br> <br>
+        <section class="university-category">
+            <h2 class="category-title"><i class="fas fa-graduation-cap"></i> Comprehensive Universities</h2>
+
+            <div class="university-grid">
+
+                <!-- UNISA -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of South Africa (UNISA) logo.png" 
+                             alt="UNISA Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <!-- <span class="university-type">Distance Learning</span> -->
+                        <h3 class="university-name">University of South Africa (UNISA)</h3>
+                        <!-- <p>The largest open distance learning institution in Africa.</p> -->
+                        <a href="https://www.unisa.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- NMU -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Nelson Mandela University (NMU)2 logo2.jpg" 
+                             alt="NMU Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Nelson Mandela University (NMU)</h3>
+                        <a href="https://www.mandela.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Walter Sisulu University -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Walter Sisulu University (WSU) logo.png" 
+                             alt="Walter Sisulu University logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Walter Sisulu University (WSU)</h3>
+                        <a href="https://www.wsu.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- UJ -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Johannesburg (UJ) logo.png" 
+                             alt="UJ Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of Johannesburg (UJ)</h3>
+                        <a href="https://www.uj.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sol Plaatje University (SPU) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/Sol Plaatje University (SPU) logo.png" 
+                             alt="Sol Plaatje University logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Sol Plaatje University (SPU)</h3>
+                        <a href="https://www.spu.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mpumalanga University (MU) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa Varsity Images/University of Mpumalanga (UMP) logo.png" 
+                             alt="Mpumalanga University logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">University of Mpumalanga (UMP)</h3>
+                        <a href="https://www.ump.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===========================
+        Footer
+    ============================ -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="footer">
+      <p>&copy; 2025 EduNexa | Empowering Future Leaders Through Education</p>
+    </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

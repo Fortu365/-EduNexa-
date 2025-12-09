@@ -106,9 +106,13 @@ app.get("/documents", (req, res) => {
     res.render("documents");
 });
 
-// app.get("/documents.html", (req, res) => {
-//     res.sendFile(path.join(__dirname, 'views', 'documents.html'));
-// });
+app.get("/varsities", (req, res) => {
+    res.render("varsities");
+});
+
+app.get("/colleges", (req, res) => {
+  res.render("colleges");
+})
 
 const imageFolderPath = path.join(__dirname, "public", "assets", "images");
 app.get("/getAllImages", (req, res) => {

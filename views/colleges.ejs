@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduNexa | South African Colleges </title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ===========================
+        Custom Styling
+    ============================ -->
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #f8f9fa;
+            --border: #eaeaea;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: #333;
+        }
+
+        /* ===========================
+            Top Navigation Bar
+        ============================ */
+        .top-nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .top-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-text:hover {
+            opacity: 0.9;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            transform: translateX(-3px);
+            text-decoration: none;
+        }
+
+        /* ===========================
+            Header
+        ============================ */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 70px 0 50px;
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 10px auto 0;
+        }
+
+        /* ===========================
+            Category Titles
+        ============================ */
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .category-title i {
+            color: var(--accent);
+            margin-right: 12px;
+        }
+
+        /* ===========================
+            University Cards
+        ============================ */
+        .university-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .university-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+
+        .university-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+        }
+
+        .university-logo-container {
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding: 25px;
+            background: #fff;
+        }
+
+        .university-logo {
+            max-height: 110px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .university-info {
+            padding: 25px;
+        }
+
+        .university-type {
+            display: inline-block;
+            background: rgba(26,188,156,0.12);
+            color: var(--accent);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .university-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .university-link {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .university-link:hover {
+            color: var(--accent);
+        }
+
+        .university-link i {
+            margin-left: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* ===========================
+            Footer
+        ============================ */
+        .page-footer {
+            background: var(--primary);
+            padding: 45px 0;
+            color: #eee;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-note {
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        /* ===========================
+            Responsive
+        ============================ */
+        @media (max-width: 768px) {
+            .top-nav-container {
+                padding: 0 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .back-button {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1 { 
+                font-size: 2.2rem; 
+            }
+            
+            .category-title { 
+                font-size: 1.7rem; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================== Top Navigation Bar ============================ -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <div class="logo-container">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <a href="/" class="logo-text">Edu<span>Nexa</span></a>
+            </div>
+            <a href="/user-welcome" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </div>
+    </nav>
+
+    <!-- =========================== Header ============================ -->
+    <header class="page-header">
+        <div class="container">
+            <h1>South African Colleges Directory</h1>
+            <p>Explore premier higher education institutions across South Africa, categorized by their academic focus and offerings.</p>
+        </div>
+    </header>
+
+    <!-- ===========================
+        Main Content
+    ============================ -->
+    <main class="container">
+
+        <!-- Public Technical Colleges-->
+         <br>
+        <section class="university-category">
+            <!-- <h2 class="category-title"><i class="fas fa-university"></i> Public TVETs Colleges</h2> -->
+            <h2 class="category-title"><i class="fas fa-school"></i> Public TVETs Colleges</h2>
+
+            <div class="university-grid">
+
+                <!-- Buffalo City TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Buffalo City TVET College logo.png" 
+                             alt="Buffalo City TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Buffalo City TVET College</h3>
+                        <a href="https://www.bccollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Capricorn TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Capricorn TVET College logo.jpeg" 
+                             alt="Capricorn TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Capricorn TVET College</h3>
+                        <a href="https://www.capricorncollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Central Johannesburg TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Central Johannesburg TVET College logo.png" 
+                             alt="Central Johannesburg TVET Collegee logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Central Johannesburg TVET College</h3>
+                        <a href="https://www.cjc.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- College of Cape Town -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/College of Cape Town logo.png" 
+                             alt="College of Cape Town logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">College of Cape Town</h3>
+                        <a href="https://www.cct.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Durbanville College -->
+                <!-- <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Durbanville College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Durbanville College</h3>
+                        <a href="https://www.durbanvillecollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="f/as fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Eastcape Midlands TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Eastcape Midlands TVET College logo.png" 
+                             alt="Eastcape Midlands TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Eastcape Midlands TVET College (EMC)</h3>
+                        <a href="https://www.emcol.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ehlanzeni TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Ehlanzeni TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Ehlanzeni TVET College</h3>
+                        <a href="https://www.ehlanzenicollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ekurhuleni East TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Ekurhuleni East TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Ekurhuleni East TVET College</h3>
+                        <a href="https://www.eec.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ekurhuleni West TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Ekurhuleni West TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Ekurhuleni West TVET College</h3>
+                        <a href="https://www.ewc.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Elangeni TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Elangeni TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Elangeni TVET College</h3>
+                        <a href="https://www.elangeneducation.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Flavius Mareka TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Flavius Mareka TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Flavius Mareka TVET College</h3>
+                        <a href="https://www.fmcollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- False Bay TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="False Bay TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">False Bay TVET College</h3>
+                        <a href="https://falsebaycollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Gert Sibande TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Gert Sibande TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Gert Sibande TVET College</h3>
+                        <a href="https://www.gscollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Goldfields TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Goldfields TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Goldfields TVET College</h3>
+                        <a href="https://www.goldfieldstvet.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ikhala TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Ikhala TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Ikhala TVET College</h3>
+                        <a href="https://www.ikhala.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ingwe TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Ingwe TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Ingwe TVET College</h3>
+                        <a href="https://www.ingwecollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- King Sabata Dalindyebo TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="King Sabata Dalindyebo TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">King Sabata Dalindyebo TVET College</h3>
+                        <a href="https://www.ksdcollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lephalale TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Lephalale TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Lephalale TVET College</h3>
+                        <a href="https://www.lepthaletvet.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Letaba TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Letaba TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Letaba TVET College</h3>
+                        <a href="https://www.letabacollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lovedale TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Lovedale TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Lovedale TVET College</h3>
+                        <a href="https://www.lovedalecollege.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Majuba TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Majuba TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Majuba TVET College</h3>
+                        <a href="https://www.majuba.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Maluti TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Maluti TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Maluti TVET College</h3>
+                        <a href="https://www.malutitvet.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mnambithi TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Mnambithi TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Mnambithi TVET College</h3>
+                        <a href="https://www.mnambithicollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mopani South East TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Mopani South East TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Mopani South East TVET College</h3>
+                        <a href="https://www.mopanicollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Motheo TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Motheo TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Motheo TVET College</h3>
+                        <a href="https://www.motheocollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nkangala TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Nkangala TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Nkangala TVET College</h3>
+                        <a href="https://www.nkangalacollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Northern Cape Urban TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Northern Cape Urban TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Northern Cape Urban TVET College</h3>
+                        <a href="https://www.northerncape-urban.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Northlink College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Northlink College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Northlink College</h3>
+                        <a href="https://www.northlink.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Orbit TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Orbit TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Orbit TVET College</h3>
+                        <a href="https://www.orbitcollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Port Elizabeth TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Port Elizabeth TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Port Elizabeth TVET College</h3>
+                        <a href="https://www.pecollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Queenstown TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Queenstown TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Queenstown TVET College</h3>
+                        <a href="https://www.queenstowncollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Rhodes Technical College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Rhodes Technical College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Rhodes Technical College</h3>
+                        <a href="https://www.rhodescollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Richfield Graduate Institute of Technology -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Richfield Graduate Institute of Technology logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Richfield Graduate Institute of Technology</h3>
+                        <a href="https://www.richfield.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- South Cape TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="South Cape TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">South Cape TVET College</h3>
+                        <a href="https://www.sccollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- South West Gauteng TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="South West Gauteng TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">South West Gauteng TVET College</h3>
+                        <a href="https://www.swgc.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Tshwane North TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Tshwane North TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Tshwane North TVET College</h3>
+                        <a href="https://www.tnc.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tshwane South TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Tshwane South TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Tshwane South TVET College</h3>
+                        <a href="https://www.tsc.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Umgungundlovu TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Umgungundlovu TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Umgungundlovu TVET College</h3>
+                        <a href="https://www.umgungundlovucollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Umfolozi TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Umfolozi TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Umfolozi TVET College</h3>
+                        <a href="https://www.umfolozicollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Vhembe TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Vhembe TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Vhembe TVET College</h3>
+                        <a href="https://www.vhembecollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Vuselela TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Vuselela TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Vuselela TVET College</h3>
+                        <a href="https://www.vuselelacollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Waterberg TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Waterberg TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Waterberg TVET College</h3>
+                        <a href="https://www.waterbergcollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- West Coast TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="West Coast TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">West Coast TVET College</h3>
+                        <a href="https://www.westcoastcollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Western College for TVET -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Western College for TVET logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Western College for TVET</h3>
+                        <a href="https://www.westerncollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Witbank Technical College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Witbank Technical College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Witbank Technical College</h3>
+                        <a href="https://www.umfolozicollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Xhariep TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Xhariep TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Xhariep TVET College</h3>
+                        <a href="https://www.xhariepcollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- King Hintsa TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="King Hintsa TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">King Hintsa TVET College</h3>
+                        <a href="https://www.kinghintsacollege.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coastal TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Coastal TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Coastal TVET College</h3>
+                        <a href="https://www.coastalcollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Isingenezwa TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Isingenezwa TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Isingenezwa TVET College</h3>
+                        <a href="https://www.isingenezwa.edu.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ilembe TVET College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/" 
+                             alt="Ilembe TVET College logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Ilembe TVET College</h3>
+                        <a href="https://www.ilembecollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <br> <br>
+        <!-- Major Private Higher Education Institutions -->
+        <section class="university-category">
+            <h2 class="category-title"><i class="fa fa-lightbulb"></i> Major Private Higher Education Institutions</h2>
+
+            <div class="university-grid">
+
+                <!-- Mancosa -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Mancosa logo.jpg" 
+                             alt="Mancosa Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Mancosa</h3>
+                        <a href="https://www.mancosa.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Milpark Education -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Milpark Education logo.png" 
+                             alt="Milpark Education Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Milpark Education</h3>
+                        <a href="https://www.milpark.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Regent Business School -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Regent Business School logo.jpeg" 
+                             alt="Regent Business School Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Regent Business School</h3>
+                        <a href="https://regent.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Rosebank College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Rosebank College logo.png" 
+                             alt="Rosebank College Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Rosebank College</h3>
+                        <a href="https://www.rosebankcollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Varsity College -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Varsity College logo.png" 
+                             alt="Varsity College Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Varsity College</h3>
+                        <a href="https://www.varsitycollege.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Vega School -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Vega School logo.jpg" 
+                             alt="Vega School Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Vega School</h3>
+                        <a href="https://www.vegaschool.com/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Boston City Campus -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Boston City Campus logo.jpeg" 
+                             alt="Boston City Campus Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Boston City Campus</h3>
+                        <a href="https://www.boston.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Damelin -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Damelin logo.png" 
+                             alt="Damelin Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Damelin</h3>
+                        <a href="https://www.damelin.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Creative Technology Universitas (CTU) Training Solutions -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Creative Technology Universitas (CTU) logo.png" 
+                             alt="CTU Training Solutions Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Creative Technology Universitas (CTU) Training Solutions</h3>
+                        <a href="https://www.ctutraining.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!--  Africa Film Drama Art (AFDA)  -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Africa Film Drama Art (AFDA) logo.png" 
+                             alt=" Africa Film Drama Art (AFDA)  Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name"> Africa Film Drama Art (AFDA) </h3>
+                        <a href="https://www.afda.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Southern Business School (SBS) -->
+                <!-- <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Southern Business School (SBS) logo.png" 
+                             alt="Southern Business School (SBS) Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Southern Business School (SBS)</h3>
+                        <a href="https://www.sbs.ac.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Regenesys Business School -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa College Images/Regenesys Business School logo.png" 
+                             alt="Regenesys Business School Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Regenesys Business School</h3>
+                        <a href="https://www.regenesys.net/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+       
+    </main>
+
+    <!-- ===========================
+        Footer
+    ============================ -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="footer">
+      <p>&copy; 2025 EduNexa | Empowering Future Leaders Through Education</p>
+    </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
