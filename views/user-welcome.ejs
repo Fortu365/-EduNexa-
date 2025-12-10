@@ -970,10 +970,10 @@
       // Simulate dynamic content loading
       document.addEventListener("DOMContentLoaded", function () {
         // In a real application, you would fetch this data from an API
-        setTimeout(() => {
-          document.getElementById("username").textContent = "Alex Johnson";
-          document.getElementById("display-name").textContent = "Alex Johnson";
-        }, 500);
+        // setTimeout(() => {
+        //   document.getElementById("username").textContent = "Alex Johnson";
+        //   document.getElementById("display-name").textContent = "Alex Johnson";
+        // }, 500);
 
         // Load sample notes
         loadSampleNotes();
@@ -1225,10 +1225,10 @@
       const typingIndicator = document.getElementById("typingIndicator");
 
       // Toggle AI chatbox
-      aiToggle.addEventListener("click", function () {
-        aiChatbox.classList.toggle("active");
-        aiToggle.classList.toggle("active");
-      });
+      // aiToggle.addEventListener("click", function () {
+      //   aiChatbox.classList.toggle("active");
+      //   aiToggle.classList.toggle("active");
+      // });
 
       // Send message function
       function sendMessage() {
@@ -1315,12 +1315,12 @@
       }
 
       // Event listeners for AI assistant
-      aiSend.addEventListener("click", sendMessage);
-      aiInput.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-          sendMessage();
-        }
-      });
+      // aiSend.addEventListener("click", sendMessage);
+      // aiInput.addEventListener("keypress", function (e) {
+      //   if (e.key === "Enter") {
+      //     sendMessage();
+      //   }
+      // });
 
       // Close AI chat when clicking outside
       document.addEventListener("click", function (event) {
@@ -1345,8 +1345,8 @@
         });
       };
 
-
       window.onload = function () {
+        
         document.getElementById("full_names").innerHTML =
           localStorage.getItem("full_names");
 

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduNexa | South African Bursaries</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ===========================
+        Custom Styling
+    ============================ -->
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #f8f9fa;
+            --border: #eaeaea;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: #333;
+        }
+
+        /* ===========================
+            Top Navigation Bar
+        ============================ */
+        .top-nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .top-nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-text:hover {
+            opacity: 0.9;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            transform: translateX(-3px);
+            text-decoration: none;
+        }
+
+        /* ===========================
+            Header
+        ============================ */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 70px 0 50px;
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 10px auto 0;
+        }
+
+        /* ===========================
+            Category Titles
+        ============================ */
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .category-title i {
+            color: var(--accent);
+            margin-right: 12px;
+        }
+
+        /* ===========================
+            University Cards
+        ============================ */
+        .university-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .university-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+
+        .university-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+        }
+
+        .university-logo-container {
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding: 25px;
+            background: #fff;
+        }
+
+        .university-logo {
+            max-height: 110px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .university-info {
+            padding: 25px;
+        }
+
+        .university-type {
+            display: inline-block;
+            background: rgba(26,188,156,0.12);
+            color: var(--accent);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .university-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .university-link {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .university-link:hover {
+            color: var(--accent);
+        }
+
+        .university-link i {
+            margin-left: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* ===========================
+            Footer
+        ============================ */
+        .page-footer {
+            background: var(--primary);
+            padding: 45px 0;
+            color: #eee;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-note {
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        /* ===========================
+            Responsive
+        ============================ */
+        @media (max-width: 768px) {
+            .top-nav-container {
+                padding: 0 15px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .back-button {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1 { 
+                font-size: 2.2rem; 
+            }
+            
+            .category-title { 
+                font-size: 1.7rem; 
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================== Top Navigation Bar ============================ -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <div class="logo-container">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <a href="/" class="logo-text">Edu<span>Nexa</span></a>
+            </div>
+            <a href="/user-welcome" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </div>
+    </nav>
+
+    <!-- =========================== Header ============================ -->
+    <header class="page-header">
+        <div class="container">
+            <h1>South African Bursaries Directory</h1>
+            <p>Explore premier bursaries across South Africa, categorized by their academic focus and offerings.</p>
+        </div>
+    </header>
+
+    <!-- ===========================
+        Main Content
+    ============================ -->
+    <main class="container">
+
+        <!-- Major Government & National Bursaries -->
+         <br>
+        <section class="university-category">
+            <h2 class="category-title"><i class="fas fa-university"></i> Major Government & National Bursaries </h2>
+
+            <div class="university-grid">
+
+                <!-- National Student Financial Aid Scheme (NSFAS) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="National Student Financial Aid Scheme (NSFAS) logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">National Student Financial Aid Scheme (NSFAS)</h3>
+                        <p>All fields of study accredited at public universities and TVET colleges. 
+                            Must be from a household with a combined income below R350,000 per annum.</p>
+                        <a href="https://www.nsfas.org.za" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Funza Lushaka Bursary (for Teaching) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Funza Lushaka Bursary (for Teaching) logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Funza Lushaka Bursary (for Teaching)</h3>
+                        <p>Teaching degrees only. Priority areas: Foundation Phase (Grade R-3), STEM subjects 
+                            (Maths, Science, Technology), African Languages.</p>
+                        <a href="https://www.funzalushaka.doe.gov.za" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DHET Scarce Skills Bursaries -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="DHET Scarce Skills Bursaries logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">DHET Scarce Skills Bursaries</h3>
+                        <p>Scarce and critical skills as defined by government. This often includes Engineering, Artisan 
+                            trades, Health Sciences, and Agriculture.</p>
+                        <a href="https://www.dhet.gov.za" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- NRF Postgraduate Funding -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="NRF Postgraduate Funding logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">NRF Postgraduate Funding</h3>
+                        <p>Postgraduate studies (Honours, Masters, PhD) in Research-based fields. Strong focus on Science, 
+                            Technology, Engineering, Mathematics (STEM), and Social Sciences.</p>
+                        <a href="https://www.nrf.ac.za" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <br> <br>
+        <!-- Major Corporate & Sector-Specific Bursaries -->
+        <section class="university-category">
+            <h2 class="category-title"><i class="fas fa-cogs"></i> Major Corporate & Sector-Specific Bursaries</h2>
+
+            <div class="university-grid">
+
+                <!-- Eskom -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Eskom Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Eskom</h3>
+                        <p>Electrical, Mechanical, and Chemical Engineering. Computer Science, Information Technology, Accounting.</p>
+                        <a href="https://www.eskom.co.za/careers/bursaries/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Transnet -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Transnet Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Transnet</h3>
+                        <p>Electrical, Mechanical, Industrial, Civil & Mechatronics Engineering. Logistics, Supply Chain, Port Management.</p>
+                        <a href="https://www.transnet.net/default.aspx?aspxerrorpath=/careers/Pages/Bursaries.aspx" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sasol -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Sasol Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Sasol</h3>
+                        <p>Chemical, Mechanical, Electrical, Mining, Industrial Engineering. Chemistry, Geology, Data Science, Accounting.</p>
+                        <a href="https://www.sasol.com/careers/students-graduates/bursaries-scholarships" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Anglo American -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Anglo American Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Anglo American</h3>
+                        <p>Mining, Electrical, Mechanical, Chemical Engineering. Geology, Surveying, Finance, Human Resources.</p>
+                        <a href="https://www.angloamerican.com/careers/students-and-graduates/bursaries" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Exxaro -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Exxaro Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Exxaro</h3>
+                        <p>Mining, Electrical, Mechanical, Environmental Engineering. Geology, Metallurgy, Finance, Supply Chain.</p>
+                        <a href="https://www.exxaro.com" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Absa Bank -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Absa Bank Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Absa Bank</h3>
+                        <p>Electrical, Mechanical, and Chemical Engineering. Computer Science, Information Technology, Accounting.</p>
+                        <a href="https://www.absa.africa/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Standard Bank -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Standard Bank Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Standard Bank</h3>
+                        <p>Commerce, Business Science, IT, Financial Planning, Investment Management, Marketing, Engineering (for IT roles).</p>
+                        <a href="https://www.standardbank.co.za/southafrica/personal/products-and-services" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Nedbank -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Nedbank Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Nedbank</h3>
+                        <p>Finance, Accounting, Economics, Mathematics, Statistics, Actuarial Science, Computer Science, Information Technology.	</p>
+                        <a href="https://group.nedbank.co.za/home.html" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FNB / FirstRand -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="FNB / FirstRand Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">FNB / FirstRand</h3>
+                        <p>Commerce, Finance, Accounting, Economics, Mathematics, Statistics, Investment Management, Computer Science, Risk Management.</p>
+                        <a href="https://www.firstrand.co.za/foundations/scholarships/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Telkom -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Telkom Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Telkom</h3>
+                        <p>Information Technology, Computer Science, Electrical/Electronic Engineering, Data Analytics, Marketing, Finance.</p>
+                        <a href="https://www.telkom.co.za/aboutus/careers/students/index.html" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PwC -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="PwC Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">PwC</h3>
+                        <p>Chartered Accountancy (CA) route ONLY. BCom Accounting, BAcc, or similar degrees leading to becoming a CA(SA).</p>
+                        <a href="https://www.pwc.co.za/en/careers/learners/learners-bursaries.html" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Deloitte -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Deloitte Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Deloitte</h3>
+                        <p>Chartered Accountancy (CA). BCom Accounting or equivalent. Also some IT/Technology bursaries for specific degrees.</p>
+                        <a href="https://www.deloitte.com/za/en/careers/explore-your-fit/students.html" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Thuthuka Bursary Fund -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Thuthuka Bursary Fund Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Thuthuka Bursary Fund</h3>
+                        <p>Chartered Accountancy (CA) ONLY. For BCom Accounting or equivalent degrees at specific universities. Targets African and Coloured students.</p>
+                        <a href="https://www.thuthukabursaryfund.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SAPPI -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="SAPPI Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">SAPPI</h3>
+                        <p>Chemical, Mechanical, Electrical, Industrial Engineering. Forestry & Wood Science, Chemistry, Environmental Science.</p>
+                        <a href="https://www.sappi.com/en-za/working-sappi" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!--  Major Trusts & Foundations -->
+         <br> <br>
+        <section class="university-category">
+            <h2 class="category-title"><i class="fas fa-graduation-cap"></i>  Major Trusts & Foundations</h2>
+
+            <div class="university-grid">
+
+                <!-- The Mandela Rhodes Foundation -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="The Mandela Rhodes Foundation Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">The Mandela Rhodes Foundation</h3>
+                        <p>Any full-time Honours or Master's degree at a South African university. Focus on leadership potential and academic excellence.</p>
+                        <a href="https://www.mandelarhodes.org" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- The Moshal Scholarship Program -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="The Moshal Scholarship Program Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">The Moshal Scholarship Program</h3>
+                        <p>Most undergraduate fields at public universities. Strong focus on STEM, Commerce, and Health Sciences. For students from challenging backgrounds.</p>
+                        <a href="https://www.moshalscholarship.com" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- The Rupert Family Foundation -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="The Rupert Family Foundation Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">The Rupert Family Foundation</h3>
+                        <p>Primarily Business Science, Engineering, Medical Sciences, and IT. Also supports vocational training.</p>
+                        <a href="https://www.rupertfoundation.org" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ikusasa Student Financial Aid Programme (ISFAP) -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Ikusasa Student Financial Aid Programme (ISFAP) Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Ikusasa Student Financial Aid Programme (ISFAP)</h3>
+                        <p>	Scarce skills degrees as defined for the "missing middle" (household income R350k - R600k). Includes: Actuarial Science, Medicine, Engineering, Veterinary Science, Accounting.</p>
+                        <a href="https://www.isfap.org.za" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!--  Critical Public Bursary Directories (Aggregators) -->
+         <br> <br>
+        <section class="university-category">
+            <h2 class="category-title"><i class="fas fa-graduation-cap"></i> Critical Public Bursary Directories (Aggregators) </h2>
+
+            <div class="university-grid">
+
+                <!-- Careerwise -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Careerwise Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Careerwise</h3>
+                        <p>	Use the search bar or browse categories like "Engineering Bursaries," "Commerce Bursaries," etc.</p>
+                        <a href="https://careerwise.co.za/our-bursary-categories/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Zabusaries -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Zabusaries Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Zabusaries</h3>
+                        <p>Browse by category or use tags for specific fields like #Accounting, #Medicine, #IT.</p>
+                        <a href="https://zabusaries.com/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bursaries South Africa -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Bursaries South Africa Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Bursaries South Africa</h3>
+                        <p>Lists are often categorized by field of study on the homepage.</p>
+                        <a href="https://bursaries-southafrica.co.za/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Careerwise -->
+                <div class="university-card">
+                    <div class="university-logo-container">
+                        <img src="/public/assets/images/EduNexa bursary Images/" 
+                             alt="Careerwise Logo" class="university-logo">
+                    </div>
+                    <div class="university-info">
+                        <h3 class="university-name">Careerwise</h3>
+                        <p>	Use the search bar or browse categories like "Engineering Bursaries," "Commerce Bursaries," etc.</p>
+                        <a href="https://careerwise.co.za/our-bursary-categories/" class="university-link" target="_blank">
+                            Visit Official Website <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===========================
+        Footer
+    ============================ -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="footer">
+      <p>&copy; 2025 EduNexa | Empowering Future Leaders Through Education</p>
+    </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

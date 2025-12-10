@@ -112,6 +112,10 @@ app.get("/varsities", (req, res) => {
 
 app.get("/colleges", (req, res) => {
   res.render("colleges");
+});
+
+app.get("/bursaries", (req, res) => {
+  res.render("bursaries");
 })
 
 const imageFolderPath = path.join(__dirname, "public", "assets", "images");
