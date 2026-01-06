@@ -58,9 +58,9 @@
         }
 
         body {
-            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: #0f172a; /* Midnight blue */
         }
 
         .gradient-bg {
@@ -180,6 +180,7 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: aliceblue;
         }
 
         .hero-subtitle {
@@ -332,7 +333,8 @@
 
         /* Footer */
         footer {
-            background: var(--dark);
+            /* background: var(--dark); */
+            background-color: #0f172a; /* Midnight blue */
             color: white;
             padding: 60px 0 30px;
         }
@@ -395,7 +397,8 @@
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--secondary);
+            transform: translateX(5px);
         }
 
         .copyright {
@@ -404,7 +407,7 @@
             margin-top: 50px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         /* Responsive */
@@ -519,7 +522,7 @@
             <nav class="navbar navbar-expand-lg navbar-light py-3">
                 <a class="navbar-brand" href="#">
                     <div class="logo">
-                        <a href="#"><i class="fa fa-graduation-cap"></i> <em>Edu</em> Nexa</a>
+                        <a href="/"><i class="fa fa-graduation-cap"></i> EDUNEXA</a>
                     </div>
                 </a>
                 
@@ -569,7 +572,7 @@
                     <div class="video-container">
 
                         <video autoplay muted loop id="bg-video">
-                            <source src="/assets/images/Check Video.mp4" type="video/mp4" />
+                             <source src="/assets/images/Pitsi Graduation Video.mp4" type="video/mp4" />
                         </video>
                     </div>
                 </div>
@@ -829,7 +832,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="footer-logo">EduNexa</div>
+                    <div class="footer-logo">EDUNEXA</div>
                     <p class="footer-description">
                         Empowering students worldwide by simplifying applications and making education accessible to everyone everywhere.
                     </p>
@@ -852,12 +855,13 @@
                 <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#who-we-are">About Us</a></li>
-                        <li><a href="#who-we-are"> Who We Are?</a></li>
-                        <li><a href="#what-we-do">What We Do?</a></li>
-                        <li><a href="#what-we-do">Services</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#who-we-are"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#who-we-are"><i class="fas fa-chevron-right"></i> Who We Are?</a></li>
+                        <li><a href="#what-we-do"><i class="fas fa-chevron-right"></i> What We Do?</a></li>
+                        <li><a href="#what-we-do"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-chevron-right"></i> How It Works</a></li> 
+                       
                     </ul>
                 </div>
                 

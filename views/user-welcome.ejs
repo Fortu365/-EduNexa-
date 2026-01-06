@@ -32,7 +32,7 @@
       }
 
       body {
-        background: var(--gradient);
+        background-color: #0f172a; /* Midnight blue */
         min-height: 100vh;
         color: #fff;
         display: flex;
@@ -1007,7 +1007,6 @@
 
       function loadSampleNotes() {
 
-        
         // const data = {};
         fetch(`/notes/${localStorage.getItem("username")}`)
         .then (res =>{
@@ -1094,7 +1093,7 @@
             <button class="note-btn edit-note" data-id="${note.id}">
               <i class="fa fa-edit"></i> Edit
             </button>
-            <button class="note-btn delete-note" data-id="${note.id}">
+            <button onclick="deleteNote(${note.id})" class="note-btn delete-note" data-id="${note.id}">
               <i class="fa fa-trash"></i> Delete
             </button>
           </div>
@@ -1184,8 +1183,8 @@
             })
           }) // Sends/Collect data to/from the db
           .then(res => {
-              if(!res.ok){ alert("Failed to add note in the database X") }  // Check if there was a positive response from the db
-              else { alert("Note added successfully !") }
+              if(!res.ok){ console.log("Failed to add note in the database X") }  // Check if there was a positive response from the db
+              else { console.log("Note added successfully !") }
           });
 
           notes.push(newNote);
@@ -1193,6 +1192,7 @@
 
         renderNotes();
         closeNoteModal();
+        // window.location.href = window.location.href 
       });
 
       // Edit note
@@ -1358,13 +1358,43 @@
          console.log(localStorage.getItem("address"));
 
         setProfilePic();
+        // loadSampleNotes();
         renderNotes();
+        console.log("Sambo Sicelo Lucky");
       };
 
       function logoutFun(){
         localStorage.clear();   
         window.location.href = "/"; // Takes the user back to the home page 
         
+      }
+
+      function deleteNote(noteId) {
+        console.log(noteId + " deleted successfully");
+        
+        fetch(`http://localhost:3000/notes/${noteId}`, {
+          method: 'DELETE' } 
+        )
+        .then(res => {
+          if(!res.ok) {
+            console.log("Failed to delete the note");
+          }return res
+
+        })
+        .then(res => {
+          console.log("Note deleted successfully");
+          // window.location.href = window.location.href 
+          loadSampleNotes();
+          renderNotes();
+        })
+        .catch(err => {
+          console.log("An error occured", err);
+        })  
+      }
+
+      if(window.performance.navigation.type === 1){
+        console.log("The page is refreshed !!!");
+        renderNotes();
       }
 
     </script>

@@ -382,6 +382,10 @@ app.post("/notes", (req, res) => {
   console.log({ id: info.lastInsertRowid, username, title, content });
 });
 
+// app.edit("/notes/:id", (req, res) => {
+  
+// });
+
 app.delete("/notes/:id", (req, res) => {
   db.prepare("DELETE FROM notes WHERE id = ?").run(req.params.id);
   res.sendStatus(204);
