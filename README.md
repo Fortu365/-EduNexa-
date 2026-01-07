@@ -29,9 +29,7 @@ This system is designed to simplify the life of students.
 ---  
 
 ## ✨ Features  
-- 📚 Access to links of all Institutions  
-- 🔔 Smart notifications & reminders  
-- 📊 Progress tracking dashboard  
+- 📚 Access to links of all Institutions   
 
 ---  
 
@@ -75,7 +73,7 @@ This system is designed to simplify the life of students.
 ## 🚀 Usage  
 - Register as a new user.  
 - Create a profile and upload all necessary attachments.  
-- Access **Notes** to store student numbers and ITS pins.  
+- Access **Notes** to store student numbers, ITS pins, and others.  
 
 ---  
 
