@@ -313,6 +313,9 @@
                         type="text"
                         class="form-control"
                         id="id_number"
+                        inputmode="numeric"
+                        pattern="[0-9]{13}" 
+                        maxlength="13" 
                         placeholder="Your ID Number"
                         required=""
                       />
@@ -322,9 +325,12 @@
                     <fieldset>
                       <input
                         name="phoneNumber"
-                        type="text"
+                        type="tel"
                         class="form-control"
                         id="phoneNumber"
+                        inputmode="numeric"
+                        pattern="[0-9]{10}" 
+                        maxlength="10" 
                         placeholder="Your Phone Number"
                         required=""
                       />
@@ -455,13 +461,14 @@
                   <div class="col-md-12">
                     <fieldset>
                       <input
-                        name="username"
-                        type="text"
-                        class="form-control"
-                        id="username"
-                        placeholder="Your Email"
-                        required=""
-                      />
+                      name="username"
+                      type="email"
+                      class="form-control"
+                      id="username"
+                      placeholder="Your Email"
+                      required
+                    />
+
                     </fieldset>
                   </div>
                   <!-- <div class="col-md-12">
