@@ -30,10 +30,10 @@
     <link rel="stylesheet" href="/assets/css/lightbox.css" />
 
     <style>
-      .text-right {
+       #confirm_password_error{
         color: white;
-        text-align: right;
-      }
+        size: 1.5rem;
+       }
     </style>
 
   </head>
@@ -42,7 +42,7 @@
     <!--header-->
     <header class="main-header clearfix" role="header">
       <div class="logo">
-        <a href="#"><i class="fa fa-graduation-cap"></i> <f>Edu</em> Nexa</a>
+        <a href="#"><i class="fa fa-graduation-cap"></i>  EduNexa</a>
       </div>
       <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
       <nav id="menu" class="main-nav" role="navigation">
@@ -119,9 +119,9 @@
                   <p class="hidden-sm">
                     informed decisions about their education and future.
                   </p>
-                  <!-- <div class="scroll-to-section">
-                    <a href="#about">More Info.</a>
-                  </div> -->
+                  <div class="scroll-to-section">
+                    <a href="about">More Info.</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -145,9 +145,9 @@
                     Our platform is available 24/7, ensuring you never miss a
                     deadline.
                   </p>
-                  <!-- <div class="scroll-to-section">
+                  <div class="scroll-to-section">
                     <a href="about#what-we-do">Details</a>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,9 +165,9 @@
                     safe and
                   </p>
                   <p class="hidden-sm">protected at all times.</p>
-                  <!-- <div class="scroll-to-section">
+                  <div class="scroll-to-section">
                     <a href="about">Read More</a>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -196,8 +196,7 @@
                   <div class="row">
                     <div class="col-md-6">
                       <img src="/assets/images/choose-us-image-01.png" alt="" />
-                      
-                                  </div>
+                    </div>
                     <div class="col-md-6">
                       <h4>Guidance for Every Student</h4>
                       <p>
@@ -234,9 +233,8 @@
                 <article id="tabs-3">
                   <div class="row">
                     <div class="col-md-6">
-                      <!-- The images -->
-                      <!-- <img src="/assets/images/choose-us-image-03.png" alt="" /> -->
-                      <video autoplay muted loop id="bg-video">
+                      <!-- The video -->
+                       <video autoplay muted loop id="bg-video">
                         <source src="/assets/images/choose-us-image-03.mp4" type="video/mp4" />
                       </video>
                     </div>
@@ -313,9 +311,6 @@
                         type="text"
                         class="form-control"
                         id="id_number"
-                        inputmode="numeric"
-                        pattern="[0-9]{13}" 
-                        maxlength="13" 
                         placeholder="Your ID Number"
                         required=""
                       />
@@ -325,12 +320,9 @@
                     <fieldset>
                       <input
                         name="phoneNumber"
-                        type="tel"
+                        type="text"
                         class="form-control"
                         id="phoneNumber"
-                        inputmode="numeric"
-                        pattern="[0-9]{10}" 
-                        maxlength="10" 
                         placeholder="Your Phone Number"
                         required=""
                       />
@@ -363,6 +355,7 @@
                   <div class="col-md-12">
                     <fieldset>
                       <input
+                        onchange="checkPassword(this.value)"
                         name="confirm_password"
                         type="password"
                         class="form-control"
@@ -370,7 +363,9 @@
                         placeholder="Confirm Password"
                         required=""
                       />
+                      
                     </fieldset>
+                    <p id="confirm_password_error"></p>
                   </div>
                   <div class="col-md-12">
                     <fieldset>
@@ -461,17 +456,16 @@
                   <div class="col-md-12">
                     <fieldset>
                       <input
-                      name="username"
-                      type="email"
-                      class="form-control"
-                      id="username"
-                      placeholder="Your Email"
-                      required
-                    />
-
+                        name="username"
+                        type="text"
+                        class="form-control"
+                        id="username"
+                        placeholder="Your Email"
+                        required=""
+                      />
                     </fieldset>
                   </div>
-                  <!-- <div class="col-md-12">
+                  <div class="col-md-12">
                     <fieldset>
                       <input
                         name="password"
@@ -482,27 +476,6 @@
                         required=""
                       />
                     </fieldset>
-                    
-                  </div> -->
-
-                  <div class="col-md-12">
-                <div style="position: relative;">
-                  <input
-                    type="password"
-                    id="myPassword"
-                    name="myPassword"
-                    class="form-control"
-                    placeholder="Enter your password"
-                    required
-                  />
-                  <span onclick="togglePassword()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 18px; color: #666;" id="toggleIcon">
-                    👁️
-                  </span>
-                </div>
-              </div>
-
-                  <div class="form-group text-right">
-                    <a href="#" class="text-right">Forgot password?</a>
                   </div>
 
                   <div class="col-md-12">
@@ -533,17 +506,17 @@
               <a href="https://web.facebook.com/profile.php?id=61580379884089"
                 ><i class="fa-brands fa-facebook"></i
               ></a>
-              <a
+              <!-- <a
                 href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoicGwifQ%3D%3D%22%7D"
                 ><i class="fa-brands fa-twitter"></i
-              ></a>
+              ></a> -->
 
               <a href="https://www.linkedin.com/company/108562581/admin/dashboard/"
                 ><i class="fa-brands fa-linkedin"></i
               ></a>
-              <a href="https://www.instagram.com/accounts/login/?hl=en"
+              <!-- <a href="https://www.instagram.com/accounts/login/?hl=en"
                 ><i class="fa-brands fa-instagram"></i
-              ></a>
+              ></a> -->
             </div>
           </div>
         </div>
@@ -721,22 +694,19 @@
       function contactUsFun(){
         window.location.href = "contact";
       }
-      // Code Edits Ends 
-    </script>
 
-    <script>
-    function togglePassword() {
-      const passwordInput = document.getElementById("myPassword");
-      const toggleIcon = document.getElementById("toggleIcon");
+      // Code Edits Starts for Password Validity
+      function checkPassword(password){
+        console.log(password);
 
-      if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        toggleIcon.textContent = "🙈"; // eye closed emoji
-      } else {
-        passwordInput.type = "password";
-        toggleIcon.textContent = "👁️"; // eye open emoji
+        if(document.getElementById("password").value === password){
+          document.getElementById("confirm_password_error").innerHTML = "✅ The Passwords Match"
+        }else{
+          document.getElementById("confirm_password_error").innerHTML = "❌ The Passwords DON'T match!";
+          document.getElementById("form-submit").disabled == true
+        }
+
       }
-    }
-  </script>
+    </script>
   </body>
 </html>

@@ -808,8 +808,8 @@
 
     <header>
       <div class="logo">
-        <i class="fa fa-graduation-cap"></i>
-        <h1>EduNexa</h1>
+        <i class="fa fa-graduation-cap" style="color: white;"></i>
+        <a href="/" style="text-decoration: none; color: white;"><h1>EDUNEXA</h1></a>
       </div>
 
         <div class="menu-icon" onclick="toggleMenu()">
@@ -865,11 +865,14 @@
           </div>
         </div>
 
+        
         <div class="card">
-          <i class="fa fa-file-invoice-dollar"></i>
+          <a href="/bursaries">
+            <i class="fa fa-file-invoice-dollar"></i>
+          </a>
           <h3>Bursary Opportunities</h3>
           <p>Find and apply for financial aid</p>
-        </div>
+        </div> 
 
         <div class="card">
           <i class="fa fa-calendar-check"></i>
@@ -886,9 +889,11 @@
       </div>
 
       <div class="quick-actions">
-        <button class="action-btn">
+        <a href="/documents" style="text-decoration: none;">
+          <button class="action-btn">
           <i class="fa fa-download"></i> Download Documents 
         </button>
+        </a>
       </div>
 
       <!-- Notes Section -->
@@ -1007,6 +1012,7 @@
 
       function loadSampleNotes() {
 
+        
         // const data = {};
         fetch(`/notes/${localStorage.getItem("username")}`)
         .then (res =>{
@@ -1093,7 +1099,7 @@
             <button class="note-btn edit-note" data-id="${note.id}">
               <i class="fa fa-edit"></i> Edit
             </button>
-            <button onclick="deleteNote(${note.id})" class="note-btn delete-note" data-id="${note.id}">
+            <button class="note-btn delete-note" data-id="${note.id}">
               <i class="fa fa-trash"></i> Delete
             </button>
           </div>
@@ -1183,8 +1189,8 @@
             })
           }) // Sends/Collect data to/from the db
           .then(res => {
-              if(!res.ok){ console.log("Failed to add note in the database X") }  // Check if there was a positive response from the db
-              else { console.log("Note added successfully !") }
+              if(!res.ok){ alert("Failed to add note in the database X") }  // Check if there was a positive response from the db
+              else { alert("Note added successfully !") }
           });
 
           notes.push(newNote);
@@ -1192,7 +1198,6 @@
 
         renderNotes();
         closeNoteModal();
-        // window.location.href = window.location.href 
       });
 
       // Edit note
@@ -1358,43 +1363,13 @@
          console.log(localStorage.getItem("address"));
 
         setProfilePic();
-        // loadSampleNotes();
         renderNotes();
-        console.log("Sambo Sicelo Lucky");
       };
 
       function logoutFun(){
         localStorage.clear();   
         window.location.href = "/"; // Takes the user back to the home page 
         
-      }
-
-      function deleteNote(noteId) {
-        console.log(noteId + " deleted successfully");
-        
-        fetch(`http://localhost:3000/notes/${noteId}`, {
-          method: 'DELETE' } 
-        )
-        .then(res => {
-          if(!res.ok) {
-            console.log("Failed to delete the note");
-          }return res
-
-        })
-        .then(res => {
-          console.log("Note deleted successfully");
-          // window.location.href = window.location.href 
-          loadSampleNotes();
-          renderNotes();
-        })
-        .catch(err => {
-          console.log("An error occured", err);
-        })  
-      }
-
-      if(window.performance.navigation.type === 1){
-        console.log("The page is refreshed !!!");
-        renderNotes();
       }
 
     </script>
