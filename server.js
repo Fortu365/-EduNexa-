@@ -36,10 +36,14 @@ its like loging in to gmail account
 */
 const mailer = nodemailer.createTransport({
   service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,          // ✅ REQUIRED
+  secure: false,      // ✅ must be false for 587
   auth: {
     user: "edu.nexa215@gmail.com",
     pass: process.env.APP_PASSWORD,
   },
+  connectionTimeout: 10000, // optional
 });
 
 // ===============================
