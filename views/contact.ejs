@@ -1,795 +1,980 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edunexa | Contact</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&family=Teko:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        :root {
-                --primary: #606060;
-                --primary-dark: rgba(255, 100, 80, 0.575);
-                --secondary: rgba(10, 6, 207, 0.322);
-                --success: rgba(10, 6, 207, 0.322);
-                --warning: rgba(51, 2, 53, 0.322);
-                --danger: rgba(3, 1, 70, 0.322);
-                --light: rgba(82, 5, 82, 0.322);
-                --dark: rgba(102, 47, 102, 0.322);
-                --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-                --card-bg: rgba(255, 255, 255, 0.15);
-                --card-border: rgba(255, 255, 255, 0.2);
-            }
+      :root {
+        --primary: #606060;
+        --primary-dark: rgba(255, 100, 80, 0.575);
+        --secondary: rgba(10, 6, 207, 0.322);
+        --success: rgba(10, 6, 207, 0.322);
+        --warning: rgba(51, 2, 53, 0.322);
+        --danger: rgba(3, 1, 70, 0.322);
+        --light: rgba(82, 5, 82, 0.322);
+        --dark: rgba(102, 47, 102, 0.322);
+        --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        --card-bg: rgba(255, 255, 255, 0.15);
+        --card-border: rgba(255, 255, 255, 0.2);
+      }
 
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Rubik', sans-serif;
-            /* color: var(--dark);
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Rubik", sans-serif;
+        /* color: var(--dark);
             overflow-x: hidden;
             background: linear-gradient(135deg, #0f2027 0%, #193842 50%, #2c5364 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             position: relative; */
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-color: #0f172a; /* Midnight blue */
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: #0f172a; /* Midnight blue */
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
         }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        50% {
+          background-position: 100% 50%;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        100% {
+          background-position: 0% 50%;
         }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: var(--transition);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 20px 0;
+        transition: var(--transition);
+      }
+
+      nav.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Teko", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      nav.scrolled .logo {
+        color: var(--primary);
+      }
+
+      .logo i {
+        margin-right: 10px;
+        color: var(--secondary);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: var(--transition);
+      }
+
+      nav.scrolled .nav-links a {
+        color: var(--dark);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      nav.scrolled .hamburger {
+        color: var(--dark);
+      }
+
+      /* Main Content */
+      .main-content {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 0 50px;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 80px;
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero h1 {
+        font-family: "Teko", sans-serif;
+        font-size: 4.5rem;
+        color: white;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .hero h1 span {
+        color: var(--secondary);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin: 0 auto 30px;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 80px;
+      }
+
+      .contact-info {
+        animation: fadeInLeft 1s ease;
+      }
+
+      .contact-form {
+        animation: fadeInRight 1s ease;
+      }
+
+      .section-title {
+        font-family: "Teko", sans-serif;
+        font-size: 2.5rem;
+        color: white;
+        margin-bottom: 30px;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: var(--secondary);
+      }
+
+      .contact-form .section-title::after {
+        width: 60px;
+      }
+
+      .info-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 25px;
+        display: flex;
+        align-items: flex-start;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .info-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .info-card:hover .info-icon {
+        background: var(--secondary);
+        transform: scale(1.1);
+      }
+
+      .info-icon i {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      .info-text h3 {
+        color: white;
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+      }
+
+      .info-text p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Form Styles */
+      .form-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        font-size: 1rem;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .form-control:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.25);
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, var(--secondary), #ff8c35);
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .submit-btn:active {
+        transform: translateY(-2px);
+      }
+
+      .submit-btn i {
+        margin-left: 10px;
+        transition: var(--transition);
+      }
+
+      .submit-btn:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Map Section */
+      .map-section {
+        margin-bottom: 80px;
+        animation: fadeInUp 1s ease;
+      }
+
+      .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Footer */
+      footer {
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        padding: 50px 0 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-logo {
+        font-family: "Teko", sans-serif;
+        font-size: 2.5rem;
+        color: white;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-logo i {
+        margin-right: 10px;
+        color: var(--secondary);
+      }
+
+      .footer-about {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background: var(--secondary);
+        transform: translateY(-5px);
+      }
+
+      .footer-heading {
+        color: white;
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary);
+        transform: translateX(5px);
+      }
+
+      .footer-links a i {
+        margin-right: 10px;
+        font-size: 0.9rem;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+      }
+
+      footer {
+        font-size: 1.2rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
         }
-        
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
         }
-        
-        .logo {
-            font-family: 'Teko', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+        to {
+          opacity: 1;
+          transform: translateX(0);
         }
-        
-        nav.scrolled .logo {
-            color: var(--primary);
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
         }
-        
-        .logo i {
-            margin-right: 10px;
-            color: var(--secondary);
+        to {
+          opacity: 1;
+          transform: translateX(0);
         }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
+      }
+
+      /* Floating Elements */
+      .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .floating-element {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        animation: float 15s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
         }
-        
-        .nav-links li {
-            margin-left: 30px;
+        50% {
+          transform: translateY(-20px) rotate(180deg);
         }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
+        100% {
+          transform: translateY(0) rotate(360deg);
         }
-        
-        nav.scrolled .nav-links a {
-            color: var(--dark);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            color: white;
-            font-size: 1.5rem;
-        }
-        
-        nav.scrolled .hamburger {
-            color: var(--dark);
-        }
-        
-        /* Main Content */
-        .main-content {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 100px 0 50px;
-        }
-        
-        .hero {
-            text-align: center;
-            margin-bottom: 80px;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero h1 {
-            font-family: 'Teko', sans-serif;
-            font-size: 4.5rem;
-            color: white;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .hero h1 span {
-            color: var(--secondary);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 80px;
-        }
-        
-        .contact-info {
-            animation: fadeInLeft 1s ease;
-        }
-        
-        .contact-form {
-            animation: fadeInRight 1s ease;
-        }
-        
-        .section-title {
-            font-family: 'Teko', sans-serif;
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: var(--secondary);
-        }
-        
-        .contact-form .section-title::after {
-            width: 60px;
-        }
-        
-        .info-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-        
-        .info-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            display: flex;
-            align-items: flex-start;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .info-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .info-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-            transition: var(--transition);
-        }
-        
-        .info-card:hover .info-icon {
-            background: var(--secondary);
-            transform: scale(1.1);
-        }
-        
-        .info-icon i {
-            font-size: 1.5rem;
-            color: white;
-        }
-        
-        .info-text h3 {
-            color: white;
-            margin-bottom: 8px;
-            font-size: 1.2rem;
-        }
-        
-        .info-text p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* Form Styles */
-        .form-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            font-size: 1rem;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.25);
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, var(--secondary), #ff8c35);
-            color: white;
-            border: none;
-            padding: 16px 40px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(-2px);
-        }
-        
-        .submit-btn i {
-            margin-left: 10px;
-            transition: var(--transition);
-        }
-        
-        .submit-btn:hover i {
-            transform: translateX(5px);
-        }
-        
-        /* Map Section */
-        .map-section {
-            margin-bottom: 80px;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .map-container {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 50px 0 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            font-family: 'Teko', sans-serif;
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-logo i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-        
-        .footer-about {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background: var(--secondary);
-            transform: translateY(-5px);
-        }
-        
-        .footer-heading {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--secondary);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-        
-        .footer-links a i {
-            margin-right: 10px;
-            font-size: 0.9rem;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
+          grid-template-columns: 1fr;
+          gap: 40px;
         }
 
-        footer {
-            font-size: 1.2rem;
-         }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
         }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+
+        .hero h1 {
+          font-size: 3.5rem;
         }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
         }
-        
-        /* Floating Elements */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
+
+        .hamburger {
+          display: block;
         }
-        
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            animation: float 15s infinite linear;
+
+        .form-row {
+          grid-template-columns: 1fr;
         }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-            100% {
-                transform: translateY(0) rotate(360deg);
-            }
+
+        .hero h1 {
+          font-size: 2.8rem;
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 3.5rem;
-            }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
         }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 2.2rem;
         }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .form-container {
-                padding: 30px 20px;
-            }
-            
-            .info-card {
-                padding: 20px;
-            }
+
+        .section-title {
+          font-size: 2rem;
         }
+
+        .form-container {
+          padding: 30px 20px;
+        }
+
+        .info-card {
+          padding: 20px;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Floating Background Elements -->
     <div class="floating-elements">
-        <div class="floating-element" style="width: 80px; height: 80px; top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="floating-element" style="width: 120px; height: 120px; top: 70%; left: 80%; animation-delay: 2s;"></div>
-        <div class="floating-element" style="width: 60px; height: 60px; top: 40%; left: 90%; animation-delay: 4s;"></div>
-        <div class="floating-element" style="width: 100px; height: 100px; top: 80%; left: 10%; animation-delay: 6s;"></div>
-        <div class="floating-element" style="width: 70px; height: 70px; top: 20%; left: 70%; animation-delay: 8s;"></div>
+      <div
+        class="floating-element"
+        style="
+          width: 80px;
+          height: 80px;
+          top: 10%;
+          left: 5%;
+          animation-delay: 0s;
+        "
+      ></div>
+      <div
+        class="floating-element"
+        style="
+          width: 120px;
+          height: 120px;
+          top: 70%;
+          left: 80%;
+          animation-delay: 2s;
+        "
+      ></div>
+      <div
+        class="floating-element"
+        style="
+          width: 60px;
+          height: 60px;
+          top: 40%;
+          left: 90%;
+          animation-delay: 4s;
+        "
+      ></div>
+      <div
+        class="floating-element"
+        style="
+          width: 100px;
+          height: 100px;
+          top: 80%;
+          left: 10%;
+          animation-delay: 6s;
+        "
+      ></div>
+      <div
+        class="floating-element"
+        style="
+          width: 70px;
+          height: 70px;
+          top: 20%;
+          left: 70%;
+          animation-delay: 8s;
+        "
+      ></div>
     </div>
 
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="container nav-container">
-            <a href="/" class="logo">
-                <i class="fas fa-graduation-cap" style="color: grey;"></i>
-                EDUNEXA
-            </a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+      <div class="container nav-container">
+        <a href="/" class="logo">
+          <i class="fas fa-graduation-cap" style="color: grey"></i>
+          EDUNEXA
+        </a>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
         </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <div class="main-content">
-        <div class="container">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1>Get In <span>Touch</span></h1>
-                <p>We're here to help you — anytime, anywhere. Reach out to us with any questions or inquiries.</p>
-            </section>
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1>Get In <span>Touch</span></h1>
+          <p>
+            We're here to help you — anytime, anywhere. Reach out to us with any
+            questions or inquiries.
+          </p>
+        </section>
 
-            <!-- Contact Section -->
-            <div class="contact-container">
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <h2 class="section-title">Contact Information</h2>
-                    <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="info-text">
-                                <h3>Our Location</h3>
-                                <p>Nobody, Ga-Mothapo, 5284 <br> Polokwane ,South Africa</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="info-text">
-                                <h3>Email Address</h3>
-                                <p>fortubelogift@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="info-text">
-                                <h3>Call Now</h3>
-                                <p>+27 797 999 278</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Contact Section -->
+        <div class="contact-container">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="info-cards">
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <h2 class="section-title">Send Us a Message</h2>
-                    <div class="form-container">
-                        <form id="contactForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email Address" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Phone Number" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">
-                                Send Message <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
-                    </div>
+                <div class="info-text">
+                  <h3>Our Location</h3>
+                  <p>
+                    Nobody, Ga-Mothapo, 5284 <br />
+                    Polokwane ,South Africa
+                  </p>
                 </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-text">
+                  <h3>Email Address</h3>
+                  <p>fortubelogift@gmail.com</p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                  <h3>Call Now</h3>
+                  <p>+27 797 999 278</p>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <!-- Map Section -->
-            <section class="map-section">
-                <h2 class="section-title">Find Us Here</h2>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14591.1060736468!2d29.66543513546756!3d-23.897542138829536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s5284%20Nobody%2C%20Ga-Mothapo%2C%20Polokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1763232939926!5m2!1sen!2sza" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <h2 class="section-title">Send Us a Message</h2>
+            <div class="form-container">
+              <form id="contactForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <input
+                      name="names"
+                      type="text"
+                      class="form-control"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      name="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Email Address"
+                      required
+                    />
+                  </div>
                 </div>
-            </section>
+                <div class="form-row">
+                  <div class="form-group">
+                    <input
+                      name="phoneNumber"
+                      type="tel"
+                      class="form-control"
+                      placeholder="Phone Number"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      name="subject"
+                      type="text"
+                      class="form-control"
+                      placeholder="Subject"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    name="message"
+                    class="form-control"
+                    placeholder="Your Message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                  Send Message <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
+
+        <!-- Map Section -->
+        <section class="map-section">
+          <h2 class="section-title">Find Us Here</h2>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14591.1060736468!2d29.66543513546756!3d-23.897542138829536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s5284%20Nobody%2C%20Ga-Mothapo%2C%20Polokwane%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1763232939926!5m2!1sen!2sza"
+              width="100%"
+              height="400"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </section>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <i class="fas fa-graduation-cap"></i>
-                        EDUNEXA
-                    </div>
-                    <p class="footer-about">Empowering students <br>
-                        worldwide by simplifying <br>
-                        applications and making <br> 
-                        education accessible to <br>
-                        everyone everywhere.</p>
-                    <div class="social-links">
-                        <a href="https://web.facebook.com/profile.php?id=61580379884089" class="social-link">
-                            <i class="fab fa-facebook-f"></i></a>
-                        <!-- <a href="#" class="social-link"><i class="fab fa-twitter"></i></a> -->
-                        <a href="https://www.linkedin.com/company/108562581/admin/dashboard/" class="social-link">
-                            <i class="fab fa-linkedin-in"></i></a>
-                        <!-- <a href="#" class="social-link"><i class="fab fa-instagram"></i></a> -->
-                    </div>
-                </div>
-                
-                <div class="footer-links-container">
-                    <h3 class="footer-heading">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="about#who-we-are"><i class="fas fa-chevron-right"></i> Who We Are?</a></li>
-                        <li><a href="about#what-we-do"><i class="fas fa-chevron-right"></i> What We Do?</a></li>
-                        <li><a href="about#how-it-works"><i class="fas fa-chevron-right"></i> How It Works?</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3 class="footer-heading">Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"> <i class="fas fa-envelope mr-2"></i> fortubelogift@gmail.com </a> </li> 
-                        <li><a href="#"> <i class="fas fa-phone-alt"></i> +27 797 999 278</a></li>
-                        <li><a href="https://wa.me/27659258037"> <i class="fab fa-whatsapp mr-2"></i> +27 659 258 037</a></li>
-                        <li><a href="#"> <i class="fas fa-map-marker-alt"></i> Nobody, Ga-Mothapo, 5284  Polokwane ,South Africa</a></li>
-
-                    </ul>
-                </div>
-
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <i class="fas fa-graduation-cap"></i>
+              EDUNEXA
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 EduNexa | Empowering Future Leaders Through Education.</p>
+            <p class="footer-about">
+              Empowering students <br />
+              worldwide by simplifying <br />
+              applications and making <br />
+              education accessible to <br />
+              everyone everywhere.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://web.facebook.com/profile.php?id=61580379884089"
+                class="social-link"
+              >
+                <i class="fab fa-facebook-f"></i
+              ></a>
+              <!-- <a href="#" class="social-link"><i class="fab fa-twitter"></i></a> -->
+              <a
+                href="https://www.linkedin.com/company/108562581/admin/dashboard/"
+                class="social-link"
+              >
+                <i class="fab fa-linkedin-in"></i
+              ></a>
+              <!-- <a href="#" class="social-link"><i class="fab fa-instagram"></i></a> -->
             </div>
+          </div>
+
+          <div class="footer-links-container">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="/"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="about"
+                  ><i class="fas fa-chevron-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="about#who-we-are"
+                  ><i class="fas fa-chevron-right"></i> Who We Are?</a
+                >
+              </li>
+              <li>
+                <a href="about#what-we-do"
+                  ><i class="fas fa-chevron-right"></i> What We Do?</a
+                >
+              </li>
+              <li>
+                <a href="about#how-it-works"
+                  ><i class="fas fa-chevron-right"></i> How It Works?</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3 class="footer-heading">Contact Info</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#">
+                  <i class="fas fa-envelope mr-2"></i> fortubelogift@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-phone-alt"></i> +27 797 999 278</a
+                >
+              </li>
+              <li>
+                <a href="https://wa.me/27659258037">
+                  <i class="fab fa-whatsapp mr-2"></i> +27 659 258 037</a
+                >
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-map-marker-alt"></i> Nobody, Ga-Mothapo, 5284
+                  Polokwane ,South Africa</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="copyright">
+          <p>
+            &copy; 2025 EduNexa | Empowering Future Leaders Through Education.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+      const form = document.getElementById("contactForm");
+
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          // Collect form data(
+          const LoginFormData = new FormData(form);
+          const logindata = Object.fromEntries(LoginFormData.entries()); // convert to plain JS object
+
+          try {
+            // Send POST request
+            const response = await fetch("/contact-us", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json", // tell server you're sending JSON
+              },
+              body: JSON.stringify(logindata), // convert object to JSON string
+            });
+
+            if (response.ok) {
+              setTimeout(() => {
+                // In a real application, you would submit the form here
+                // For this example, we'll just show an alert
+                alert("Your query has been sent to EduNexa");
+
+                // Clears the form fields
+                form.reset();
+
+                // Redirects to the login - page
+                window.location.href = "/";
+
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Remove animation class
+                formContainer.classList.remove("pulse");
+              }, 1500);
+            }
+          } catch {}
+
+          /*
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.innerHTML;
             
@@ -811,32 +996,38 @@
                     submitBtn.style.background = '';
                 }, 2000);
             }, 1500);
+
+            */
         });
 
-        // Add floating elements dynamically
-        document.addEventListener('DOMContentLoaded', function() {
-            const floatingContainer = document.querySelector('.floating-elements');
-            const colors = ['rgba(255, 255, 255, 0.05)', 'rgba(255, 255, 255, 0.03)', 'rgba(255, 255, 255, 0.07)'];
-            
-            for (let i = 0; i < 8; i++) {
-                const size = Math.floor(Math.random() * 80) + 40;
-                const top = Math.floor(Math.random() * 100);
-                const left = Math.floor(Math.random() * 100);
-                const delay = Math.floor(Math.random() * 10);
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                
-                const element = document.createElement('div');
-                element.classList.add('floating-element');
-                element.style.width = `${size}px`;
-                element.style.height = `${size}px`;
-                element.style.top = `${top}%`;
-                element.style.left = `${left}%`;
-                element.style.animationDelay = `${delay}s`;
-                element.style.background = color;
-                
-                floatingContainer.appendChild(element);
-            }
-        });
+      // Add floating elements dynamically
+      document.addEventListener("DOMContentLoaded", function () {
+        const floatingContainer = document.querySelector(".floating-elements");
+        const colors = [
+          "rgba(255, 255, 255, 0.05)",
+          "rgba(255, 255, 255, 0.03)",
+          "rgba(255, 255, 255, 0.07)",
+        ];
+
+        for (let i = 0; i < 8; i++) {
+          const size = Math.floor(Math.random() * 80) + 40;
+          const top = Math.floor(Math.random() * 100);
+          const left = Math.floor(Math.random() * 100);
+          const delay = Math.floor(Math.random() * 10);
+          const color = colors[Math.floor(Math.random() * colors.length)];
+
+          const element = document.createElement("div");
+          element.classList.add("floating-element");
+          element.style.width = `${size}px`;
+          element.style.height = `${size}px`;
+          element.style.top = `${top}%`;
+          element.style.left = `${left}%`;
+          element.style.animationDelay = `${delay}s`;
+          element.style.background = color;
+
+          floatingContainer.appendChild(element);
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -55,8 +55,7 @@
           </li>
           <li>
             <a href="#section6"
-              ><i class="fa-solid fa-right-to-bracket"></i> Login</a
-            >
+              ><i class="fa-solid fa-right-to-bracket"></i> Login</a>
           </li>
           <li class="has-submenu">
             <a onclick="aboutUsFun()" href="about">
@@ -350,6 +349,9 @@
                         placeholder="Your Password"
                         required=""
                       />
+                      <span onclick="togglePassword()" style="position: absolute; right: 20px; bottom: 25%; transform: translateY(-50%); cursor: pointer; font-size: 18px; color: #666;" id="toggleIcon">
+                        👁️
+                      </span>
                     </fieldset>
                   </div>
                   <div class="col-md-12">
@@ -363,7 +365,7 @@
                         placeholder="Confirm Password"
                         required=""
                       />
-                      
+
                     </fieldset>
                     <p id="confirm_password_error"></p>
                   </div>
@@ -465,26 +467,34 @@
                       />
                     </fieldset>
                   </div>
-                  <div class="col-md-12">
-                    <fieldset>
-                      <input
-                        name="password"
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        placeholder="Your Password"
-                        required=""
-                      />
-                    </fieldset>
-                  </div>
 
-                  <div class="col-md-12">
+                <div class="col-md-12">
+                <div style="position: relative;">
+                  <input
+                    type="password"
+                    id="myPassword"
+                    name="myPassword"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required
+                  />
+                  <span onclick="togglePassword()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 18px; color: #666;" id="toggleIcon">
+                    👁️
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group text-right">
+                    <a href="/forgot-password" class="text-right" style="color: white;">Forgot password?</a>
+              </div>
+
+              <div class="col-md-12">
                     <fieldset>
                       <button type="submit" id="form-submit" class="button">
                         LOGIN
                       </button>
                     </fieldset>
-                  </div>
+              </div>
                 </div>
               </form>
             </div>
@@ -619,6 +629,7 @@
             alert("✅ Data Sent Successfully!");
             console.log("hjgbkhbjkb");
             console.log((window.location.href = "#section6"));
+            form.reset();
           } else {
             alert("❌ Error: " + (result.message || "Something Went Wrong"));
           }
@@ -694,6 +705,29 @@
       function contactUsFun(){
         window.location.href = "contact";
       }
+
+      // Function that Prevents/Allows the User to see the Entered Password
+    function togglePassword() {
+      const passwordInput = document.getElementById("myPassword");
+      const firstAttmpPassword = document.getElementById("password");
+      const toggleIcon = document.getElementById("toggleIcon");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.textContent = "🙈"; // eye closed emoji
+      } else {
+        passwordInput.type = "password";
+        toggleIcon.textContent = "👁️"; // eye open emoji
+      }
+
+      if (firstAttmpPassword.type === "password") {
+        firstAttmpPassword.type = "text";
+        toggleIcon.textContent = "🙈"; // eye closed emoji
+      } else {
+        firstAttmpPassword.type = "password";
+        toggleIcon.textContent = "👁️"; // eye open emoji
+      }
+    }
 
       // Code Edits Starts for Password Validity
       function checkPassword(password){

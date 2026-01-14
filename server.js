@@ -8,14 +8,10 @@ const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
 
-
 const nodemailer = require("nodemailer"); //for setting up gmail messanger, for sending emails
 const crypto = require("crypto"); // for creating password reset tokens,on the url written in numbers and letters
 
-require('dotenv').config();// for reading variable from the .env file
-
-
-
+require("dotenv").config(); // for reading variable from the .env file
 
 // ===============================
 // ✅ INITIAL SETUP
@@ -25,12 +21,10 @@ const port = 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));//adding a string to the url
+app.use(express.urlencoded({ extended: true })); //adding a string to the url
 
 // SQLite database
 const db = new Database("./edu-nexa.db");
-
-
 
 /*
 set up the gmail account for sending emails
@@ -191,14 +185,18 @@ app.post("/get-personal-info", (req, res) => {
 // ✅ LOGIN
 // ===============================
 app.post("/login", (req, res) => {
-  const { username, password } = req.body;
+  const { username, myPassword } = req.body;
+
+  console.log(username, myPassword);
 
   const stmt = db.prepare(`
     SELECT * FROM CreateAccount
     WHERE username = ? AND password = ?
   `);
 
-  const users = stmt.all(username, password);
+  const users = stmt.all(username, myPassword);
+
+  console.log(users);
 
   users.length === 1
     ? res.send({
@@ -214,6 +212,8 @@ app.post("/login", (req, res) => {
 // ===============================
 app.post("/forgot-password", (req, res) => {
   const { email } = req.body;
+
+  console.log("the email is " + email);
 
   const user = db
     .prepare("SELECT * FROM CreateAccount WHERE email = ?")
@@ -243,10 +243,90 @@ app.post("/forgot-password", (req, res) => {
   res.json({ message: "Reset email sent." });
 });
 
+app.post("/contact-us", (req, res) => {
+  const { names, email, phoneNumber, subject, message } = req.body;
+
+  console.log("the email is " + email);
+
+  mailer.sendMail({
+    to: "edu.nexa215@gmail.com",
+    subject: "User Query",
+    html: `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages Display</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Received Messages</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Subject</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${names}</td>
+                <td>${email}</td>
+                <td>${phoneNumber}</td>
+                <td>${subject}</td>
+                <td>${message}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+        
+    `,
+  });
+
+  res.json({ message: "message sent " });
+});
+
 app.get("/reset-password/:token", (req, res) => {
   res.render("reset-password", { token: req.params.token });
 });
-
 
 app.get("/forgot-password", (req, res) => {
   res.render("forgot-password");
@@ -255,7 +335,6 @@ app.get("/forgot-password", (req, res) => {
 app.get("/reset-password", (req, res) => {
   res.render("reset-password");
 });
-
 
 app.post("/reset-password", (req, res) => {
   const { token, newPassword } = req.body;
