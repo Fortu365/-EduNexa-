@@ -36,10 +36,11 @@ This system is designed to simplify the life of students.
 ---  
 
 ## 🛠 Tech Stack  
-- **Frontend:** HTML5, CSS3
-- **Backend:** Node js, Express js, Node mailer
-- **Database:** SQLite3, Better-SQLite3   
-- **Deployment:** GitHub, Render  
+- **Frontend:** Tailwind CSS, Bootstrap  
+- **Backend:** Node.js  
+- **Database:** XAMPP  
+- **Authentication:** JavaScript  
+- **Deployment:** GitHub Actions  
 
 ---  
 

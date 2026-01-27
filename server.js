@@ -7,6 +7,7 @@ const Database = require("better-sqlite3");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
+// const { Resend } = require("resend");
 
 const nodemailer = require("nodemailer"); //for setting up gmail messanger, for sending emails
 const crypto = require("crypto"); // for creating password reset tokens,on the url written in numbers and letters
@@ -30,21 +31,15 @@ const db = new Database("./edu-nexa.db");
 set up the gmail account for sending emails
 its like loging in to gmail account
 
-
-
-
 */
 const mailer = nodemailer.createTransport({
   service: "gmail",
-  host: "smtp.gmail.com",
-  port: 587,          // ✅ REQUIRED
-  secure: false,      // ✅ must be false for 587
   auth: {
     user: "edu.nexa215@gmail.com",
     pass: process.env.APP_PASSWORD,
-  },
-  connectionTimeout: 10000, // optional
+  }
 });
+
 
 // ===============================
 // ✅ VIEW ENGINE
@@ -362,7 +357,13 @@ app.post("/reset-password", (req, res) => {
   `
   ).run(newPassword, user.account_id);
 
-  res.send("✅ Password reset successful");
+  res.send(`<script>
+    window.onload =  function() {
+      alert('✅ Password reset successful')
+      window.location.href= "/"; 
+    }
+    </script>`);
+    
 });
 
 // ===============================
@@ -421,6 +422,21 @@ app.delete("/notes/:id", (req, res) => {
   db.prepare("DELETE FROM notes WHERE id = ?").run(req.params.id);
   res.sendStatus(204);
 });
+
+// import { Resend } from 'resend';
+
+// An API for testing the Resend mail 
+// app.get("/testing-mail", (req, res) => {
+// const resend = new Resend('re_L6kPwWR2_PgxcfADFLEYsGDejyoDNeHrs');
+
+//   resend.emails.send({
+//     from: 'info@edunexa.co.za',
+//     to: 'fortubelogift@gmail.com',
+//     subject: 'Hello World',
+//     html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+//   });
+//   res.send("Sending Email Fortu");
+// });
 
 // ===============================
 // ✅ START SERVER
